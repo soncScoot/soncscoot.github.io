@@ -77,10 +77,10 @@ var c4 = {
 };
 
 var wv = {
-	"3":[],
-	"2":[],
-	"1":[],
-	"0":[],
+	"3":["(R U' R D) (R' U R D') (R' U' R')"],
+	"2":["R U' R'", "U' (R' F) (R U R U') R' F'", "(R2 D) (R' U') (R D') R2", "(R U' R' U) (R' U' R U') (R' U2 R)", "U' (R U' R' U2) (R U' R' U2) (R U R')", "(R U R' U') (R U' R')"],
+	"1":["U (R U' R' U) (R U2 R')", "U F' (R U2 R' U2) (R' F R)", "R U (R2 U' R2 U') R2 U2 R", "(U) R' U' (R2 U' R2 U2 R)", "(R U') x' (U R' D R U' R' D')", "(U) R U2 R2 U' (R U' R') U2 R", "(U) R2 D R' U2 R D' R2", "(U') L' (U R U' R') L", "(U) (R U' R' U') R' F (R U R U') R' F'", "(U) R U2 R'", "R U' R' U2 (R2 D R' U2 R D' R' U2 R)"],
+	"0":["R U' R' U' R U R' U R U2 R'", "R U' R2 U2 R U R' U R", "R2 D R' U R D' R' U2 R'", "R U' R' U2 (R U2 R2 U' R2 U' R2 U2 R)", "(U) R U' R' U R U' R' U R U2 R'", "(U) R U2 (R2 U2 R U R' U R)", "R U' (R2 U' R U' R' U2 R)", "(R U R' U') (R U R' U') (R U' R')"],
 };
 
 var c6 = {
