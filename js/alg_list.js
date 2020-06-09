@@ -49,8 +49,8 @@ var ols = {
 };
 
 var sv = {
-	"3":[],
-	"2":[],
+	"3":["U2 R' D' r U2 r' D R / R U' R' U L' U2 R U' R' U2 L"],
+	"2":["L' U2 L R U' R' U L' U L / R U R' U' R U R' U R U2 R'", "R U' R' F' R U2 R' U2 R' F R / R U' L' U2 L U2 R' U2 L' U2 L / R U' L' U' L U2 R' U2 L' U L", "U2 L R U' R' U L'", "R U R'", "R U' L' U2 L U L' U L R' / R U R' U R' U2 R U R' U R", "R U R D R' U R D' R' U' R' / R U' R2 D' R U' R' D R2 U' R' / R U' R' U' R2 D R' U' R D' R2"],
 	"1":[],
 	"0":[],
 };
