@@ -26,11 +26,11 @@ var tsle = {
 };
 
 var ols = {
-	"(1) Summer Variation":[],
+	"1 Summer Variation":[],
 	"2":[],
 	"3":[],
 	"4":[],
-	"(5) Winter Variation":[],
+	"5 Winter Variation":[],
 	"6":[],
 	"7":[],
 	"8":[],
@@ -186,7 +186,7 @@ var c20 = {
 window.algs = {
 	"TTLL": ttll,
     "TSLE": tsle,
-	"OLS": ols,
+	"OLS (Full)": ols,
 	"Summer Variation (Case 1)": sv,
 	"OLS Case 2": c2,
 	"OLS Case 3": c3,
