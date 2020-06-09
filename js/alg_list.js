@@ -12,7 +12,7 @@ var tsle = {
 	"UN3":["U (R U' R') U' (R U' R') U (R U' R')"],
 	"UN2":["R U' R'", "U' (R U2) (R' U2) (R U2) R'", "R2 D (R' U' R D') R2", "(R U' R' U) (R' U' R U' R' U2 R)", "(R U R' U2) (R U' R' U') R U R'", "(R U R' U') (R U' R')"],
 	"UN1":["U (R U' R' U) (R U2 R')", "(U2 R U2 R') (U R U2 R')", "U' (R U' R' U) (R U R' U') (R U' R')", "(R U' R' U') (R U2 R' U' R U' R')", "(R U R' U2) (R U2 R' U) (R U' R')", "U' R U' (R' U R U') R'", "U' (R U R' U2) (R U2 R')", "U' L' (U R U' R') L", "(R U2 R') U (R U' R') U (R U' R')", "U (R U2 R')", "U' (R U2 R' U) (R U' R')", "U' (R U R' U') R U R'"],
-	"UN0":[],
+	"UN0":["(R U' R' U') (R U R' U) (R U2 R')", "(R U' R' U) (R U R' U R U2 R')", "R U R D (R' U2 R D') R2", "U (R U' R' U) (R U' R' U) (R U2 R')", "U R U' R' U' R U' R' U' R U R' U", "U2 (R U R' U') (R U R' U2) R U R'", "(R U' R' U) R U2 (R' U' R U') R'", "(R U R' U') (R U R' U') R U' R'"],
 	"UNX":[],
 	"UCw4":[],
 	"UCw3":[],
