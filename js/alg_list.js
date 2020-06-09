@@ -30,7 +30,7 @@ var ols = {
 	"2":[],
 	"3":[],
 	"4":[],
-	"5":[],
+	"5":["(R U' R D) (R' U R D') (R' U' R')", "R U' R'", "U' (R' F) (R U R U') R' F'", "(R2 D) (R' U') (R D') R2", "(R U' R' U) (R' U' R U') (R' U2 R)", "U' (R U' R' U2) (R U' R' U2) (R U R')", "(R U R' U') (R U' R')", "U (R U' R' U) (R U2 R')", "U F' (R U2 R' U2) (R' F R)", "R U (R2 U' R2 U') R2 U2 R", "(U) R' U' (R2 U' R2 U2 R)", "(R U') x' (U R' D R U' R' D')", "(U) R U2 R2 U' (R U' R') U2 R", "(U) R2 D R' U2 R D' R2", "(U') L' (U R U' R') L", "(U) (R U' R' U') R' F (R U R U') R' F'", "(U) R U2 R'", "R U' R' U2 (R2 D R' U2 R D' R' U2 R)", "R U' R' U' R U R' U R U2 R'", "R U' R2 U2 R U R' U R", "R2 D R' U R D' R' U2 R'", "R U' R' U2 (R U2 R2 U' R2 U' R2 U2 R)", "(U) R U' R' U R U' R' U R U2 R'", "(U) R U2 (R2 U2 R U R' U R)", "R U' (R2 U' R U' R' U2 R)", "(R U R' U') (R U R' U') (R U' R')"],
 	"6":[],
 	"7":[],
 	"8":[],
