@@ -26,11 +26,11 @@ var tsle = {
 };
 
 var ols = {
-	"Summer Variation":[],
+	"(1) Summer Variation":[],
 	"2":[],
 	"3":[],
 	"4":[],
-	"Winter Variation":[],
+	"(5) Winter Variation":[],
 	"6":[],
 	"7":[],
 	"8":[],
