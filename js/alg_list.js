@@ -1,6 +1,6 @@
 var ttll = {
-    "Front Opposite":[],
-    "Right Opposite":[],
+    "Front Opposite":["(R U' R' U' R U' R') U2 (R U' R' U' R U' R')", "U' (R U R' U R U R' U) (R U' R' U) (R U R' U R U R')", "U (R U' R' U) (R U2 R' U') (R U R')", "(R U' R' U') (R U2 R' U2 R U2) (R' U R U R')", "U' (R2 U2) (R U' R' U R' U2) R2 U (R U R')", "U2 (R U2 R' U' R' U2) (R2 U R2’ U) R", "U2 (R2 U) (R2 U) (R2 U2) R2", "U (R' U' R' U) (R U2 R U2) (R2 U') (R U R)", "R2 U2 (R2 U' R2 U') R2", "U (R U' R' U) R2 U (R' U R' U') R2 U' (R' U2) R'", "(R' U2 R U2) (R U R' U2) (R U R' U') (R' U2) R", "U (R' U') (R2 U' R2 U2) (R U R U2) R'"],
+    "Right Opposite":["(y') (R' U2) (R U R' U2) R2 U2 (R' U' R U') R2 U' R", "(y') (R' U R U R' U) R U2 (R' U R U R' U R)", "(y') U' (R' U R U') R' U2 (R U R' U') R", "(y') (R' U R U) (R' U2 R U2 R' U2) (R U' R' U') R", "R2 F2 U2 (R2 U' R2 U') F2 R2", "(y') U2 (R2 U' R2 U') R2 U2 R2", "(y') U2 (R' U2) (R U R U2) (R2 U' R2 U') R'", "(y') U' (R U R U') (R' U2 R' U2) R2 U (R' U' R')", "(y') R2 U2 (R2 U R2 U) R2", "(y') U (R U R U') R2 U2 R U2 (R U R' U') R'", "(y') R2 U2 (R U R U') R' U2 (R U R' U') R' U R2", "(y') U' R U (R2 U R2 U2) (R' U' R' U2) R"],
 	"Double Opposite":[],
 	"Front Bar":[],
 	"Right Bar":[],
