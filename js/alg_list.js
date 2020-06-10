@@ -191,7 +191,7 @@ window.algs = {
 	"OLS Case 2": c2,
 	"OLS Case 3": c3,
 	"OLS Case 4": c4,
-	"OLS Winter Variation (Case 5)": wv,
+	"Winter Variation (Case 5)": wv,
 	"OLS Case 6": c6,
 	"OLS Case 7": c7,
 	"OLS Case 8": c8,
