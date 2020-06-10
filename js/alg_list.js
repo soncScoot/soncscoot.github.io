@@ -42,10 +42,10 @@ var ols = {
 	"14":["L D' L' U L D L'", "U' L2 D' L' U2 L D L' U2 L' / U' R U R' U' R U' R' U' R U R'", "U R U L U' R' U L' / U R U2 R' U2 R U R' U R U' R'", "L2 D' L' U L D L' U' L' / U R U2 R' U2 R U R' U2 R U2 R'", "U' R U2 R' U R U R'", "U2 R2 U' L' U R2 U' L / U' R U2 R' U R U2 R' U R U2 R'", "D R' U R U R' U2 R D'", "D R' U R U2 R' U R D'", "R' U R U2 R2 U' R U2 R' U' R2", "U R U R' U2 R U R'", "R U' R' U2 R U' R U2 R2 U' R2 U' R2 / R U2 R' U' R U2 R' U' R U' R' U2 R U R'", "L U2 L' U' L2 D' L' U' L D L2 / U' R U' R' U' R2 U R' U R U2 R2", "U2 R U' R' U2 R U R' U R U R'", "D' L2 U' L U' L' U2 L U' L D / U2 R U' R' U R U' R' U' R U R'", "U' R U L' U R' U' R L U' R' / R U R' U R U R' U2 R U2 R' U2 R U' R'", "U2 R U2 R' U R U2 R' U2 R U R'", "U R U' R' U R U R' U' R U R'", "L2 D' L' U L D L2 U L U2 L' / U2 R U R' U R2 U2 R' U' R U' R' U R' / U R U R' U2 R U R' U' R U2 R' U' R U' R'", "U R' D' R U R' U' R U' R' U2 D R / L D' L' U L D L2 U' L U' L' U2 L", "U2 R U R2 U' R U' R' U2 R2 U2 R' / R U R' U' R U R' U2 R U R' U' R U2 R'", "U R U R' U2 R U2 R' U R U2 R'", "U R U' L' U2 L U' R' U2 L' U L / R U' R' U2 R U R' U2 R U' R' U R U' R'", "U' R U2 R' U' R L U' R' U L'", "L' U2 R U' R' L U L' U R L U' R' / U R U R' U2 R U R2 U2 R U R' U R / R U2 R' U' R U R' U2 R U' R' U R U' R'", "U' R U2 R' U R U' R' U' R U' R'", "U2 R U2 R' U R U2 L U' R' U L' / D' L' U' L U' L' U' L U L' U2 L D", "U' R U2 R2 U2 R U R' U R2 U' R' / R2 D R' U' R D' R' U' R' U' R U' R' / R U2 R' U' R U R' U2 R U' R' U2 R U2 R'"],
 	"15":["L' R U R' U' L R U2 R' U' R U R'", "R2 U2 R' U' R U' R' U2 R'", "R U2 R' U2 R U2 R' U' R U R'", "R U R' U' R U2 R' U' R U R'", "U2 R U' R' U' R U R' U' R U2 R'", "U' R2 U2 R' U' R U' R2 U' R U' R'", "R U' R' U2 R U' R' U2 R U' R' U2 R U' R'", "R U2 R' U2 R U R' U' R U2 R' U2 R U R'"],
 	"16":["U2 R U' R' U R U2 R' L' U R U' R' L", "R U2 R U R' U R U2 R2", "R U' R' U R U2 R' U2 R U2 R'", "R U' R' U R U2 R' U R U' R'", "R U2 R' U R U' R' U R U R'", "U' R U R' U R2 U R' U R U2 R2", "R U2 R' U2 R U' R' U R U2 R' U2 R U' R'", "R U' R' U2 R U2 R' U R U' R' U2 R U2 R'"],
-	"17":[],
-	"18":[],
-	"19":[],
-	"20":[],
+	"17":["U2 R2 U2' R2' U' R2 U' R2'", "U' R U R' U' L U' R U R' L'", "U2 R U' R' U L U' R U R' L'", "U2 R L U L U' R' U L' U' L' / U' R U2 R' U2 R U2 R' L' U R U' R' L / U' R U2 R' U2 R U R' L U' R U R' L'", "U2 R U' R' U R U R' U R U' R'", "U' R U R' U' R U R' U R U' R'", "U R U2 R' U' R U2 R' U' R U2 R'", "U2 R U' R' U' R U' R' U2 R U R'", "U R U R' U' R U2 R' U R U' R'", "U' R U R' L' U R U' L U' R'", "L' U2 R2 U2 R2 U' R2 U' R2 L", "R U R' U' R U R' U' R U R'", "R U' R2 U' R U' R' U2 R2 U R'", "U R U R' U' R U2 R' U2 R U2 R'", "U' R U R' U R U' R' U2 R U R'", "R U2 R' U' R U' R' U R U' R' U2 R U' R'", "U' R U2 R' U2 R U2 R' U R U' R'", "y L' U' L U L' U' L U L' U' L", "U2 F' R U R' U R U2 R' F", "U' R U R' U' R U R' U2 R U2 R'", "U R U' R' U R U' R' U R U R' U' R U' R'", "R U R' U2 R U2 R' U2 R U R'", "L' U' L U' L' U' R2 U' L U R2", "R U R' L U' R U R' U' R U R' L'", "R U' R' U2 R2 D R' U2 R D' R' U R'", "U R U2 R' U' R U2 R' U2 R U' R'", "U2 R U2 R' U2 R U' R' U R U' R'"],
+	"18":["R' D' R U R' D R2 U' R'", "U R U' R' U2 R L' U2 L U L' U R' L", "U' R U R' U R2 U2 R' U' R U' R2", "U' R' D' R U' R' D R U2 R U' R'", "R U' R' U2 R' U' R2 U' R2 U2 R", "R U' R' U' R U2 R' U' R U2 R'", "U2 R U' R' U2 R U2 R'", "R U' R' U' R U' R' U2 R U' R'", "U R U2 R U2 R' U' R U' R2", "U R U R' U' R U' R' U2 R U R'", "R U' R' U R U' R'", "U R U' R' U R U R' U' R U' R'", "R U R' U R U R' U2 R U2 R'", "R U' R' U' R U' R' U' R U2 R'", "R U2 R' U2 R U' R' U2 R U R'", "R U R' U2 R' U' R2 U' R2 U2 R2 U' R'", "R U2 R U2 R2 U' R2 U' R2", "R U' R' U L U' R U L' U' R'", "U' R U2 R' U' R U2 R' U2 R U2 R'", "U L R U' R' U R U' R' U L'", "U' R2 U R' U R U2 R2 U2 R U R'", "U' R U' R' U2 R U' R' U R U2 R'", "R U' R' L' U R U' R' L", "U' R2 U R' U R U L' U R2 U' L", "R U R' U2 L' U R U' L U' R'", "U R' U' R U' R' U2 R2 U' R' U2 R U2 R'", "R U R' U R U' R' U R2 U2 R' U' R U' R2"],
+	"19":["U' F' R U2 R' U2 R' F R2 U R' / R U R' U' R U R' U' R U R' U R U2 R'", "U' R U R2 D' R U' R' D R / F' R U2 R' U' R U R' U2 R' F R", "U R U2 R2 U' R U' R' U2 R2 U R'", "U L' U2 R U2 R' U2 R L U R'", "U R U' R' U2 R2 U2 R2 U' R2 U' R2 / U2 R U R' U2 R U R' U R U R'", "U2 R U2 R' U R U2 R' U R U R' / R2 D R' U R D' R2 U' R U R'", "U' R U2 R' U2 R U R'", "R U R' U' R U2 R' U R U2 R'", "U L' U2 R U2 R' U2 R U R' U' L", "U' R U2 L U' R' U L'", "L' R U R' U' R U R' U' L", "R U R' U R L U' R' U L'", "U' R U' L U' R' U L' U R U R' / R U' R U2 R' U' R U' R2 U' R U R'", "U2 R U' R2 U' R U' R' U2 R2 U2 R'", "U' R U2 R' U2 R L' U R' U' L", "U L' U R U L U L' U L U' R'", "U2 R U2 R2 D' R U2 R' D R", "U L U' R U R' U' R U R' L'", "R U R' U' R U R'", "R U R' U' R U' R' U' R U' R'", "U' R L' U2 L U' R' U2 L' U L / R U R' U' R U' R2 U' R2 U' R2 U2 R", "U' R U2 R' U2 R U' R' U' R U' R'", "R U R' U' R U R' U2 R U2 R' U' R U' R'", "R U2 R' U2 R U' R' U R U R' U' R U2 R'", "U2 R U2 R U' L' U R2 U' L / U R U2 R' U' R U' R' U' R U R' U' R U R'", "L' R U R' U' R L U R'", "R2 U2 R' U' R U' R' U R' U2 R U2 R' / U R U2 R' U2 R2 D R' U2 R D' R' U R' / R U' R' U' R U' R' U2 R U2 R' U2 R U2 R'"],
+	"20":["R' U' R' U' R' U R U R", "U R U' R' U R U L U' R' U L' / U2 R U' R2 D' R U2 R' D R2 U R'", "R U' R' U' R2 D R' U R D' R2 / U R' F' R U R U' R' F / U' R U R' U' R U R' U' R U' R' U2 R U2 R'", "U2 R2 D' R U' R' U' R U R' D R2 U R / L' U2 R U L U' L' U' R' U2 L / R U' R' U R U2 R' U R U2 R' U R U' R'", "R U R' L' U R U' R' L U R U R'", "U' R U R' L U' R U L' U' R'", "U R U L U' R' U R L' U' R'", "U' R U R' U' R U' R U2 R2 U' R2 U' R2", "U' R U R' U' R U2 R' U' R U2 R' U' R U R'", "U F' U2 L' U L U L' U L F", "U' L U2 L' U2 R U L U' L' U' R'", "U F' R U R' U' R' F R", "R U R' L U' R U R' L' U R U2 R'", "U R2 U R2' U R U' R U' R2'", "R U2 R' U R U2 R' U2 R U' R'", "U R U' R2 U2 R2 U R2 U R", "U' R U' R' U2 R2 U' L' U R2 U' L", "U2 R U' R' U2 R U' R' U' R U R'", "U R' U' R2 U' R2 U2 R2 U R'", "U' R U R' U2 R U2 R' U' R U2 R'", "U2 R2 U R' U R' U' R2 U' R2", "R U2 R' U R U' R' U2 R U' R'", "R U2 R' U R U2 R' U' R U2 R'", "U R U R' U2 R U2 R' U2 R U' R'", "U R U R' U2 R U R' U' R U2 R'", "R U' R' U' R U' R' U R U R'", "R U' R' U' R U R' U R U R'"],
 };
 
 var sv = {
@@ -155,31 +155,31 @@ var c16 = {
 };
 
 var c17 = {
-	"3":[],
-	"2":[],
-	"1":[],
-	"0":[],
+	"4":["U2 R2 U2' R2' U' R2 U' R2'"],
+	"3":["U' R U R' U' L U' R U R' L'", "U2 R U' R' U L U' R U R' L'", "U2 R L U L U' R' U L' U' L' / U' R U2 R' U2 R U2 R' L' U R U' R' L / U' R U2 R' U2 R U R' L U' R U R' L'", "U2 R U' R' U R U R' U R U' R'", "U' R U R' U' R U R' U R U' R'", "U R U2 R' U' R U2 R' U' R U2 R'"],
+	"2":["U2 R U' R' U' R U' R' U2 R U R'", "U R U R' U' R U2 R' U R U' R'", "U' R U R' L' U R U' L U' R'", "L' U2 R2 U2 R2 U' R2 U' R2 L", "R U R' U' R U R' U' R U R'", "R U' R2 U' R U' R' U2 R2 U R'", "U R U R' U' R U2 R' U2 R U2 R'", "U' R U R' U R U' R' U2 R U R'", "R U2 R' U' R U' R' U R U' R' U2 R U' R'", "U' R U2 R' U2 R U2 R' U R U' R'", "y L' U' L U L' U' L U L' U' L", "U2 F' R U R' U R U2 R' F"],
+	"1":["U' R U R' U' R U R' U2 R U2 R'", "U R U' R' U R U' R' U R U R' U' R U' R'", "R U R' U2 R U2 R' U2 R U R'", "L' U' L U' L' U' R2 U' L U R2", "R U R' L U' R U R' U' R U R' L'", "R U' R' U2 R2 D R' U2 R D' R' U R'", "U R U2 R' U' R U2 R' U2 R U' R'", "U2 R U2 R' U2 R U' R' U R U' R'"],
 };
 
 var c18 = {
-	"3":[],
-	"2":[],
-	"1":[],
-	"0":[],
+	"3":["R' D' R U R' D R2 U' R'", "U R U' R' U2 R L' U2 L U L' U R' L", "U' R U R' U R2 U2 R' U' R U' R2", "U' R' D' R U' R' D R U2 R U' R'", "R U' R' U2 R' U' R2 U' R2 U2 R", "R U' R' U' R U2 R' U' R U2 R'", "U2 R U' R' U2 R U2 R'", "R U' R' U' R U' R' U2 R U' R'"],
+	"2":["U R U2 R U2 R' U' R U' R2", "U R U R' U' R U' R' U2 R U R'", "R U' R' U R U' R'", "U R U' R' U R U R' U' R U' R'", "R U R' U R U R' U2 R U2 R'", "R U' R' U' R U' R' U' R U2 R'", "R U2 R' U2 R U' R' U2 R U R'", "R U R' U2 R' U' R2 U' R2 U2 R2 U' R'", "R U2 R U2 R2 U' R2 U' R2", "R U' R' U L U' R U L' U' R'"],
+	"1":["U' R U2 R' U' R U2 R' U2 R U2 R'", "U L R U' R' U R U' R' U L'", "U' R2 U R' U R U2 R2 U2 R U R'", "U' R U' R' U2 R U' R' U R U2 R'"],
+	"0":["R U' R' L' U R U' R' L", "U' R2 U R' U R U L' U R2 U' L", "R U R' U2 L' U R U' L U' R'", "U R' U' R U' R' U2 R2 U' R' U2 R U2 R'", "R U R' U R U' R' U R2 U2 R' U' R U' R2"],
 };
 
 var c19 = {
-	"3":[],
-	"2":[],
-	"1":[],
-	"0":[],
+	"3":["U' F' R U2 R' U2 R' F R2 U R' / R U R' U' R U R' U' R U R' U R U2 R'", "U' R U R2 D' R U' R' D R / F' R U2 R' U' R U R' U2 R' F R", "U R U2 R2 U' R U' R' U2 R2 U R'", "U L' U2 R U2 R' U2 R L U R'"],
+	"2":["U R U' R' U2 R2 U2 R2 U' R2 U' R2 / U2 R U R' U2 R U R' U R U R'", "U2 R U2 R' U R U2 R' U R U R' / R2 D R' U R D' R2 U' R U R'", "U' R U2 R' U2 R U R'", "R U R' U' R U2 R' U R U2 R'", "U L' U2 R U2 R' U2 R U R' U' L", "U' R U2 L U' R' U L'"],
+	"1":["L' R U R' U' R U R' U' L", "R U R' U R L U' R' U L'", "U' R U' L U' R' U L' U R U R' / R U' R U2 R' U' R U' R2 U' R U R'", "U2 R U' R2 U' R U' R' U2 R2 U2 R'", "U' R U2 R' U2 R L' U R' U' L", "U L' U R U L U L' U L U' R'", "U2 R U2 R2 D' R U2 R' D R", "U L U' R U R' U' R U R' L'", "R U R' U' R U R'", "R U R' U' R U' R' U' R U' R'", "U' R L' U2 L U' R' U2 L' U L / R U R' U' R U' R2 U' R2 U' R2 U2 R", "U' R U2 R' U2 R U' R' U' R U' R'"],
+	"0":["R U R' U' R U R' U2 R U2 R' U' R U' R'", "R U2 R' U2 R U' R' U R U R' U' R U2 R'", "U2 R U2 R U' L' U R2 U' L / U R U2 R' U' R U' R' U' R U R' U' R U R'", "L' R U R' U' R L U R'", "R2 U2 R' U' R U' R' U R' U2 R U2 R' / U R U2 R' U2 R2 D R' U2 R D' R' U R' / R U' R' U' R U' R' U2 R U2 R' U2 R U2 R'"],
 };
 
 var c20 = {
-	"4":[],
-	"3":[],
-	"2":[],
-	"1":[],
+	"4":["R' U' R' U' R' U R U R"],
+	"2":["U R U' R' U R U L U' R' U L' / U2 R U' R2 D' R U2 R' D R2 U R'", "R U' R' U' R2 D R' U R D' R2 / U R' F' R U R U' R' F / U' R U R' U' R U R' U' R U' R' U2 R U2 R'", "U2 R2 D' R U' R' U' R U R' D R2 U R / L' U2 R U L U' L' U' R' U2 L / R U' R' U R U2 R' U R U2 R' U R U' R'", "R U R' L' U R U' R' L U R U R'", "U' R U R' L U' R U L' U' R'", "U R U L U' R' U R L' U' R'", "U' R U R' U' R U' R U2 R2 U' R2 U' R2", "U' R U R' U' R U2 R' U' R U2 R' U' R U R'", "U F' U2 L' U L U L' U L F", "U' L U2 L' U2 R U L U' L' U' R'", "U F' R U R' U' R' F R", "R U R' L U' R U R' L' U R U2 R'"],
+	"1":["U R2 U R2' U R U' R U' R2'", "R U2 R' U R U2 R' U2 R U' R'", "U R U' R2 U2 R2 U R2 U R", "U' R U' R' U2 R2 U' L' U R2 U' L", "U2 R U' R' U2 R U' R' U' R U R'", "U R' U' R2 U' R2 U2 R2 U R'", "U' R U R' U2 R U2 R' U' R U2 R'", "U2 R2 U R' U R' U' R2 U' R2"],
+	"0":["R U2 R' U R U' R' U2 R U' R'", "R U2 R' U R U2 R' U' R U2 R'", "U R U R' U2 R U2 R' U2 R U' R'", "U R U R' U2 R U R' U' R U2 R'", "R U' R' U' R U' R' U R U R'", "R U' R' U' R U R' U R U R'"],
 };
 
 
