@@ -140,8 +140,8 @@ var c13 = {
 };
 
 var c14 = {
-	"3":[],
-	"2":[],
+	"3":["L D' L' U L D L'"],
+	"2":["U' L2 D' L' U2 L D L' U2 L' / U' R U R' U' R U' R' U' R U R'", "U R U L U' R' U L' / U R U2 R' U2 R U R' U R U' R'", "L2 D' L' U L D L' U' L' / U R U2 R' U2 R U R' U2 R U2 R'", "U' R U2 R' U R U R'", "U2 R2 U' L' U R2 U' L / U' R U2 R' U R U2 R' U R U2 R'", "D R' U R U R' U2 R D'"],
 	"1":[],
 	"0":[],
 };
