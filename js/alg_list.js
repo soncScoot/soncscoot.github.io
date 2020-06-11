@@ -194,8 +194,15 @@ var c20 = {
 	"0":["R U2 R' U R U' R' U2 R U' R'", "R U2 R' U R U2 R' U' R U2 R'", "U R U R' U2 R U2 R' U2 R U' R'", "U R U R' U2 R U R' U' R U2 R'", "R U' R' U' R U' R' U R U R'", "R U' R' U' R U R' U R U R'"],
 };
 
+var zzf2l = {
+	"FR":["R U R' U2 R U' R' U R U' R'", "R U' R' U2 R U' R' / L D' L' U L D L'", "R' U2 R2 U R2 U R", "R U2 R U R' U R U2 R2", "(U2) R2 U2 R' U' R U' R2", "U' R U' R' U' R U2 R' / L' D2 L U2 L' D2 L", "R U2 R' U' R U R'"],
+	"FL":["L' U' L U2 L' U L U' L' U L", "R' D R U' R' D' R / L' U L U2 L' U L", "L U2 L2 U' L2 U' L'", "L' U2 L' U' L U' L' U2 L2", "(U2) L2 U2 L U L' U L2", "R D2 R' U2 R D2 R' / U L' U L U L' U2 L", "L' U2 L U L' U' L"],
+	"BR":["R' U' R U2 R' U R U' R' U R", "R' U R U2 R' U R / L' D L U' L' D' L", "R U2 R2 U' R2 U' R'", "R' U2 R' U' R U' R' U2 R2", "R2 U’ R2 U’ R2 U2 R2", "U R' U R U R' U2 R / L D2 L' U2 L D2 L'", "R' U2 R U R' U' R"],
+	"BL":["L U L' U2 L U' L' U L U' L'", "R D' R' U R D R' / L U' L' U2 L U' L'", "L' U2 L2 U L2 U L", "L U2 L U L' U L U2 L2", "L2 U L2 U L2 U2 L2", "R' D2 R U2 R' D2 R / U' L U' L' U' L U2 L'", "L U2 L' U' L U L'"],
+};
 
 window.algs = {
+	"ZZF2L": zzf2l,
 	"TTLL": ttll,
     "TSLE": tsle,
 	"TTLL (from Tao Yu's trainer)": ttllTao,
