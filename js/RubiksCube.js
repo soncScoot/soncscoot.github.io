@@ -489,67 +489,52 @@ function generateAlgScramble(raw_alg,set,obfusticateAlg,shouldPrescramble){
     }
 
     switch(set){
-        case "ZBLS (Chad Batten, Tao Yu)":
-        case "VHLS (Chad Batten)":
-        case "ZBLSE (John McWilliams)":
-            return generatePreScramble(raw_alg, "RBR'FRB'R'F',RUR'URU2R',U,R'U'RU'R'U2R,F2U'R'LF2L'RU'F2", 1000, true);//ZBLLscramble
-
-        case "OLL":
-        case "OLL (Feliks Zemdegs - Cubeskills)":
-        case "VLS":
-        case "WVLS":
-        case "OH OLL":
-        case "CLS (Justin Taylor)":
-        case "VLS (Jayden McNeill)":
-            return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true);//PLL scramble
-
-        case "ELS (FR) (Justin Taylor)":
-            return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U,R' D' R U R' D R,R F' L F R' F' L' F,R2 U R2' U R2 U2' R2',R U' R' U R U2' R' U R U' R'", 100, true);//CLS FR scramble
-        case "ELS (BR) (Justin Taylor)":
-            return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U,R2' U' R2 U' R2 U2' R2,R' U2 R U' R' U' R,R' U R U2' R' U R,R' U R U' R' U2' R U' R' U R", 100, true);//CLS FR scramble
-
-        case "OLLCP":
-        case "OLLCP (Cale Schoon)":
-        case "OLLCP (Justin Taylor, WIP)":
-        case "COLL":
-        case "COLL (Tao Yu)":
-        case "CP solved OLLCP":
-        case "Briggs-Taylor Reduction COLL":
-            return generatePreScramble(raw_alg, "F2U'R'LF2RL'U'F2,U", 5000, true);//EPLL scramble
-
-        case "CMLL":
-        case "OH CMLL":
-            return generatePreScramble(raw_alg, "M2,MUM,MUM',MU'M,MU'M',MU2M,MU2M',M'UM,M'UM',M'U'M,M'U'M',M'U2M,M'U2M'", 100, true);//LSE scramble
-
-        case "3x3 CLL (Justin Taylor)":
-            return generatePreScramble(raw_alg, "F2 U' R' L F2 L' R U' F2, R' U2' R2 U R' U' R' U2' r U R U' r', U", 100, true);//ELL scramble
-
-        case "42 (Shadowslice)":
-            return generatePreScramble(raw_alg, "M'UM, M'U'M, MUM', MU'M',M2, RUMU'R'M", 500, true);//L7E scramble
-
-        case "OL5C (SqAree)":
-            return generatePreScramble(raw_alg, "R2,U,D", 100, true);//<U, D, R2> scramble
-
-        case "TOLS (Justin Taylor)":
         case "TSLE":
             return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //TTLL scramble
 		case "TSLE (from Tao Yu's trainer)":
             return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //TTLL scramble
-
-        case "F2L":
-            return generatePreScramble(raw_alg, "FRUR'U'F',RBR'FRB'R'F',RUR'URU2R',U", 100, true);
-
-        case "Ortega OLL":
-            return generatePreScramble(raw_alg, "R F' R B2 R' F R B2 R2,R'FR'B2'RF'R'B2'R2,U,D", 100, true);
-        case "CPLS (Arc)":
-        case "CPEOLL":
-            return generatePreScramble(raw_alg, "R U R' U R U2' R', U, L' U' L U' L' U2 L", 100, true);//2GLL scramble
-        case "Pseudo2GLL (no algs)":
-            return generatePreScramble(raw_alg, "R U R' U R U2' R', U, L' U' L U' L' U2 L, F R' F' M F R F' M'", 10000, true);
-        case "Ribbon Multislotting":
-            return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U,R U' R' U2 R U' R' ,R U2' R' U R U R' ,R U R' U R U2' R' ,R U2 R' U' R U' R' ", 10000, true);
 		case "OLS (Full)":
-
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "Summer Variation (Case 1)":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 2":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 3":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 4":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "Winter Variation (Case 5)":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 6":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 7":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 8":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 9":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 10":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 11":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 12":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 13":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 14":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 15":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 16":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 17":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 18":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 19":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "OLS Case 20":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
         default:  
             return obfusticate(alg.cube.invert(raw_alg));
     }
