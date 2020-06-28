@@ -202,7 +202,7 @@ var zzf2l = {
 };
 
 window.algs = {
-	"ZZF2L": zzf2l,
+	//"ZZF2L": zzf2l,
 	"TTLL": ttll,
     "TSLE": tsle,
 	"TTLL (from Tao Yu's trainer)": ttllTao,
