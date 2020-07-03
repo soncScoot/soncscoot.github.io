@@ -131,10 +131,10 @@ var c10 = {
 };
 
 var c11 = {
-	"4":["R U' R' U2 R U R'"],
-	"3":["R U L' U2 L U' R' U L' U2 L / U2 R U R' U R2 D R' U' R D' R2 / U' L' U' L U' L' U2 L U R U2 R'", "R U' L U' R' U' L' U' L U' L'", "U2 R U R' L' U2 R U2 R' U2 L", "U' L' U' L U' L' U2 R L U' R'", "R U' L U' R' U L'", "U2 L U' R U R' L'"],
-	"2":["R U' R' U2 R L' U R' U' L / R U' R' U2 R U2 R' U R U2 R'", "R' U2 R' U R2 U' R U2 R / U2 R U R' U2 R U' R' U R U2 R'", "U' L U' R U R' L' U R U' R'", "R U R' U' R U2 R U' L' U R2 U' L", "R U L' U2 L U' R' U2 L' U L", "U2 L U' R U L' U2 R' U' R U' R'", "R2 U2 R U' R U R' U2 R2 / R U2 R' U2 R U2 R' U R U R'", "U' R U2 R' U R U2 R' U' R U R'", "R2 U' L' U R' U' L U' R' / U2 R U R' U2 R2 D R' U2 R D' R2 / U2 R U2 R2 D' R U2 R' D R2 U2 R'", "L U L' U L U2 R U' R' U L'", "U' L' U R U' L U' R' / R U2 R2 D' R U' R' D R"],
-	"1":["U' R U R' U2 R U2 R' U R U' R'", "U2 R U R' U2 R U2 R'", "U R U R' F' R U R' U R U2 R' F", "R U R' U R U R' U' R U R'", "U2 R U R2 F' R U2 R U2 R' F / U R U' L U L' U2 R' U' L U2 L'", "U' R U R' U2 R U2 R' U2 R U2 R'", "U R U' R' U2 R U' R' U R U' R'", "R U R' U' R U2 R2 D' R U2 R' D R / U R U' R' U2 R U' R' L' U R U' R' L / R U' R' U2 R U R' U' R U2 R' U' R U' R'"],
+	"4":["R U' R' U2 R U R'"], 
+	"3":["R U L' U2 L U' R' U L' U2 L / U2 R U R' U R2 D R' U' R D' R2 / U' L' U' L U' L' U2 L U R U2 R'", "R U' L U' R' U' L' U' L U' L'", "U2 R U R' L' U2 R U2 R' U2 L", "U' L' U' L U' L' U2 R L U' R'", "R U' L U' R' U L'", "U2 L U' R U R' L'"], 
+	"2":["R U' R' U2 R L' U R' U' L / R U' R' U2 R U2 R' U R U2 R'", "R' U2 R' U R2 U' R U2 R / U2 R U R' U2 R U' R' U R U2 R'", "U' L U' R U R' L' U R U' R'", "R U R' U' R U2 R U' L' U R2 U' L", "R U L' U2 L U' R' U2 L' U L", "U' L' U' L U' R L' U R' U2 L", "U2 L U' R U L' U2 R' U' R U' R'", "R2 U2 R U' R U R' U2 R2 / R U2 R' U2 R U2 R' U R U R'", "U' R U2 R' U R U2 R' U' R U R'", "R2 U' L' U R' U' L U' R' / U2 R U R' U2 R2 D R' U2 R D' R2 / U2 R U2 R2 D' R U2 R' D R2 U2 R'", "L U L' U L U2 R U' R' U L'", "U' L' U R U' L U' R' / R U2 R2 D' R U' R' D R"], 
+	"1":["U' R U R' U2 R U2 R' U R U' R'", "U2 R U R' U2 R U2 R'", "U R U R' F' R U R' U R U2 R' F", "R U R' U R U R' U' R U R'", "U2 R U R2 F' R U2 R U2 R' F / U R U' L U L' U2 R' U' L U2 L'", "U' R U R' U2 R U2 R' U2 R U2 R'", "U R U' R' U2 R U' R' U R U' R'", "R U R' U' R U2 R2 D' R U2 R' D R / U R U' R' U2 R U' R' L' U R U' R' L / R U' R' U2 R U R' U' R U2 R' U' R U' R'"], 
 };
 
 var c12 = {
