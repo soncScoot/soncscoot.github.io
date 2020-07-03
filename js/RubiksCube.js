@@ -493,7 +493,7 @@ function generateAlgScramble(raw_alg,set,obfusticateAlg,shouldPrescramble){
 			return generatePreScramble(raw_alg, "RBR'FRB'R'F',RUR'URU2R',U,R'U'RU'R'U2R,F2U'R'LF2L'RU'F2", 1000, true);//ZBLLscramble
         case "TSLE":
             return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //TTLL scramble
-		case "TSLE (from Tao Yu's trainer)":
+		case "TSLE (Tao Yu's trainer)":
             return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //TTLL scramble
 		case "OLS (Full)":
 			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
@@ -506,6 +506,8 @@ function generateAlgScramble(raw_alg,set,obfusticateAlg,shouldPrescramble){
 		case "OLS Case 4":
 			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
 		case "Winter Variation (Case 5)":
+			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+		case "Winter Variation (from the spreadsheet)":
 			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
 		case "OLS Case 6":
 			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble

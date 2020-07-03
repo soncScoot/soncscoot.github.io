@@ -95,6 +95,13 @@ var wv = {
 	"0":["U2 R U' R D R' U' R D' R2 / U R U' R2 U2 R U R' U R / U2 R2 D R' U' R D' R' U' R' ","U R U R D R' U2 R D' R2 / U R2 D R' U R D' R' U2 R' ","R2 U R' U R' U' R U R U2 R2 / U2 R' U L U' R2 U L' U R' / U2 R U' R' U L' U R U' R' L U' R U' R' / U2 R U R' U' R U R D R' U R D' R2' ","U2 R U' R' U R U' R' U R U2 R' ","U2 R U2 R2 U2 R U R' U R / U2 R U' R' U R U' R D R' U' R D' R2 ","U R U' R2 U' R U' R' U2 R / U R U R' U F2 L' U L U' L' U' L F2 ","U R U R' U' R U R' U' R U' R'"],
 };
 
+var wvSonc = {
+	"3":["R U' R D R' U R D' R' U' R'"], 
+	"2":["R U' R'", "U' R' F R U R U' R' F'", "R2 D R' U' R D' R2", "R U' R' U R' U' R U' R' U2 R", "U' R U' R' U2 R U' R' U2 R U R'", "R U R' U' R U' R'"], 
+	"1":["U R U' R' U R U2 R'", "U F' R U2 R' U2 R' F R", "R U R2 U' R2 U' R2 U2 R", "U R' U' R2 U' R2 U2 R", "R U' x' U R' D R U' R' D' x", "U R U2 R2 U' R U' R' U2 R", "U R2 D R' U2 R D' R2", "U' L' U R U' R' L", "U R U' R' U' R' F R U R U' R' F'", "U R U2 R'", "R U' R' U2 R2 D R' U2 R D' R' U2 R' / U' R' F2 R2 U' R' U' R U R' F2'"], 
+	"0":["R U' R' U' R U R' U R U2 R'", "R U' R2 U2 R U R' U R", "R2 D R' U R D' R' U2 R'", "R U' R' U2 R U2 R2 U' R2 U' R2 U2 R", "U R U' R' U R U' R' U R U2 R'", "U R U2 R2 U2 R U R' U R", "R U' (R2 U' R U' R' U2 R", "R U R' U' R U R' U' R U' R'"], 
+};
+
 var c6 = {
 	"3":["R L U2 L' U2 R' U2 L U2 L'"], 
 	"2":["U' R2 U2 R2 U' R2 U' R' U' R' / R D L U2 L' U L U L' D' R'", "R U' R' U' R U2 R' L' U R U' R' L", "D R2 U' R' U' R U2 R2 D'", "U L U' R U' L' U' L U' L' U R'", "R' D' R U2 R' D R U R U' R'", "L U' R U L' U R' U' R U2 R' / U R U R' U R U' R' U' R U2 R'"], 
@@ -205,14 +212,15 @@ window.algs = {
 	//"ZZF2L": zzf2l,
 	"TTLL": ttll,
     "TSLE": tsle,
-	"TTLL (from Tao Yu's trainer)": ttllTao,
-    "TSLE (from Tao Yu's trainer)": tsleTao,
+	"TTLL (Tao Yu's trainer)": ttllTao,
+    "TSLE (Tao Yu's trainer)": tsleTao,
 	"OLS (Full)": ols,
 	"Summer Variation (Case 1)": sv,
 	"OLS Case 2": c2,
 	"OLS Case 3": c3,
 	"OLS Case 4": c4,
 	"Winter Variation (Case 5)": wv,
+	"Winter Variation (from the spreadsheet)": wvSonc,
 	"OLS Case 6": c6,
 	"OLS Case 7": c7,
 	"OLS Case 8": c8,
