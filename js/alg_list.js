@@ -117,10 +117,10 @@ var c8 = {
 };
 
 var c9 = {
-	"4":["R2 U R' U R U2 R' U' R' / R U' R' U R U2 R' U R U R'"],
-	"3":["R U R' U R U2 R' U2 R U R'", "U2 R U R' U' R U' R' U2 R U' R'", "L U' R' U L' U' R U' R U R'", "U2 R U2 R' U' R U' R' U R U' R'", "U R U' R' U' R U' R' U R U' R'", "R' U' R U' R' U2 R U' R U' R'"],
-	"2":["U2 R2 U2 R' U' R U' R2 / R U' R' U' R U R' U2 R U R'", "R U R' U R U2 L U' R' U L'", "R U' R U' L' U R2 U' L", "U R2 U2 R' U' R U' R' U R'", "U' R U R' U' R2 U2 R' U' R U' R2", "R U' R' U R U2 R' U R U' R' U' R U' R' / U2 R2 U2 R' U2 L' U R U' L R2 / R' U2 R U R' U R2 U R' U2 R U2 R", "R' U' R U' R' U2 R U' R U R' U' R U' R'", "U' R' U' R U' R' U2 R U R U2 R'", "R U R' U2 R U R' U' R U R'", "R U R' U2 R U R' U' R U R'", "U' R U' R' U2 R2 U2 R' U' R U' R' U R'", "R U2 R' U2 R U R' U R U R'", "U L' U' L U' L' R U' R' U2 L"],
-	"1":["R2 U R' U R U2 R2 U R U2 R'", "R' U' R U' R' U2 R2 U2 R'", "U2 R' U2 R U R' U R2 U R'", "U' R' U' R U' R' U2 R2 U' R'", "U2 R U' R' U R2 U2 R' U' R U' R2", "U R' U2 R U R' U R2 U R' U R U R'", "R' U' R U' R' U R2 U' R2 U2 R", "U' R U2 R' U' R2 U2 R' U' R U' R2"],
+	"4":["R2 U R' U R U2 R' U' R' / R U' R' U R U2 R' U R U R'"], 
+	"3":["R U R' U R U2 R' U2 R U R'", "U2 R U R' U' R U' R' U2 R U' R'", "L U' R' U L' U' R U' R U R'", "U2 R U2 R' U' R U' R' U R U' R'", "U R U' R' U' R U' R' U R U' R'", "R' U' R U' R' U2 R U' R U' R'"], 
+	"2":["U2 R2 U2 R' U' R U' R2 / R U' R' U' R U R' U2 R U R'", "R U R' U R U2 L U' R' U L'", "R U' R U' L' U R2 U' L", "U R2 U2 R' U' R U' R' U R'", "U' R U R' U' R2 U2 R' U' R U' R2", "R U' R' U R U2 R' U R U' R' U' R U' R' / U2 R2 U2 R' U2 L' U R U' L R2 /R' U2 R U R' U R2 U R' U2 R U2 R'", "R' U' R U' R' U2 R U' R U R' U' R U' R'", "U' R' U' R U' R' U2 R U R U2 R'", "R U R' U2 R U R' U' R U R'", "U' R U' R' U2 R2 U2 R' U' R U' R' U R'", "R U2 R' U2 R U R' U R U R'", "U L' U' L U' L' R U' R' U2 L"], 
+	"1":["R2 U R' U R U2 R2 U R U2 R'", "R' U' R U' R' U2 R2 U2 R'", "U2 R' U2 R U R' U R2 U R'", "U' R' U' R U' R' U2 R2 U' R'", "U2 R U' R' U R2 U2 R' U' R U' R2", "U R' U2 R U R' U R2 U R' U R U R'", "R' U' R U' R' U R2 U' R2 U2 R", "U' R U2 R' U' R2 U2 R' U' R U' R2"], 
 };
 
 var c10 = {
