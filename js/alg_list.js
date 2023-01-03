@@ -243,7 +243,7 @@ window.algs = {
 	"TTLL (Legacy, from soncScoot's Document)": ttllLegacy,
 	"TTLL (Tao Yu's trainer)": ttllTao,
 	"TSLE": tsle,
-    "TSLE (Tao Yu's trainer)": tsleTao,
+	"TSLE (Tao Yu's trainer)": tsleTao,
 	"OLS (Full)": ols,
 	"Summer Variation (Case 1)": sv,
 	"OLS Case 2": c2,
