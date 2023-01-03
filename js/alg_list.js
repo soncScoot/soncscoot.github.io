@@ -237,8 +237,8 @@ var zzf2l = {
 
 window.algs = {
 	//"ZZF2L": zzf2l,
-	"TTLL": ttll
-	"TTLL (𝝅)": ttllPi
+	"TTLL": ttll,
+	"TTLL (𝝅)": ttllPi,
 	"TTLL (Swagrid)": ttllSwagrid,
 	"TTLL (Legacy, from soncScoot's Document)": ttllLegacy,
 	"TTLL (Tao Yu's trainer)": ttllTao,
