@@ -245,12 +245,12 @@ window.algs = {
 	"TSLE": tsle,
 	"TSLE (Tao Yu's trainer)": tsleTao,
 	"OLS (Full)": ols,
-	"Summer Variation (Case 1)": sv,
+	"OLS Case 1 (Summer Variation)": sv,
 	"OLS Case 2": c2,
 	"OLS Case 3": c3,
 	"OLS Case 4": c4,
-	"Winter Variation (Case 5)": wv,
-	"Winter Variation (from the spreadsheet)": wvSonc,
+	"OLS Case 5 (Winter Variation)": wv,
+	//"Winter Variation (from the spreadsheet)": wvSonc,
 	"OLS Case 6": c6,
 	"OLS Case 7": c7,
 	"OLS Case 8": c8,
@@ -266,4 +266,5 @@ window.algs = {
 	"OLS Case 18": c18,
 	"OLS Case 19": c19,
 	"OLS Case 20": c20,
+	
 };
