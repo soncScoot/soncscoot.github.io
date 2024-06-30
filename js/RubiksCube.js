@@ -11,10 +11,10 @@ var algorithmHistory = [];
 var shouldRecalculateStatistics = true;
 
 createAlgsetPicker();
-
+/*
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-}
+}*/
 Cube.initSolver();
 
 var connectGiiker = document.getElementById("connectGiiker");
@@ -57,9 +57,10 @@ var defaults = {"useVirtual":false,
                 "goInOrder":false,
                 "goToNextCase":false,
                 "mirrorAllAlgs":false,
+                "mirrorAllAlgsAcrossS":false,
                 "colourneutrality1":"",
-                "colourneutrality2":"",
-                "colourneutrality3":"",
+                "colourneutrality2":"x2",
+                "colourneutrality3":"y",
                 "userDefined":false,
                 "userDefinedAlgs":"",
                 "fullCN":false,
@@ -71,14 +72,20 @@ var defaults = {"useVirtual":false,
                 "customColourF":"green",
                 "customColourB":"blue",
                 "customColourR":"red",
-                "customColourL":"orange"
+                "customColourL":"orange",
+                "visualCubeView":"plan",
+                "randomizeSMirror":false,
+                "randomizeMMirror":false,
+                "autoCorrectRotation":true,
                };
 
-for (var setting in defaults){
+for (var setting in defaults){ 
+// If no previous setting exists, use default and update localStorage. Otherwise, set to previous setting
     if (typeof(defaults[setting]) === "boolean"){
         var previousSetting = localStorage.getItem(setting);
         if (previousSetting == null){
             document.getElementById(setting).checked = defaults[setting];
+            localStorage.setItem(setting, defaults[setting]);
         }
         else {
             document.getElementById(setting).checked = previousSetting == "true"? true : false;
@@ -87,10 +94,17 @@ for (var setting in defaults){
     else {
         var previousSetting = localStorage.getItem(setting);
         if (previousSetting == null){
-            document.getElementById(setting).value = defaults[setting];
+            var element = document.getElementById(setting)
+            if (element != null){
+                element.value = defaults[setting];
+            }
+            localStorage.setItem(setting, defaults[setting]);
         }
         else {
-            document.getElementById(setting).value = previousSetting;
+            var element = document.getElementById(setting)
+            if (element != null){
+                element.value = previousSetting;
+            }
         }
     }
 }
@@ -99,6 +113,10 @@ setTimerDisplay(!document.getElementById("hideTimer").checked);
 if (document.getElementById("userDefined").checked){
     document.getElementById("userDefinedAlgs").style.display = "block";
 }
+
+document.getElementById("lines").addEventListener("change", function(){
+    drawCube(cube.cubestate);    
+});
 
 var useCustomColourScheme = document.getElementById("useCustomColourScheme");
 useCustomColourScheme.addEventListener("click", function(){
@@ -171,9 +189,35 @@ hideTimer.addEventListener("click", function(){
 
 });
 
+var visualCubeContainer = document.getElementById("visual-cube-container");
+visualCubeContainer.addEventListener("click", function(){
+    var currentView = localStorage.getItem("visualCubeView")
+
+    var viewIndexes = {"plan":0, "":1, "hide": 2}
+
+    var viewIx = viewIndexes[currentView]
+
+    var newView = Object.entries(viewIndexes).find(([key, value]) => value === ((viewIx + 1)%3))[0]; 
+    localStorage.setItem("visualCubeView", newView);
+
+    if (newView == "hide"){
+        document.getElementById("visualcube").style.display = "none"
+    } else {
+        document.getElementById("visualcube").style.display = "block"
+        var algTest = algorithmHistory[historyIndex];
+        updateVisualCube(algTest ? algTest.preorientation+algTest.scramble : "");
+    }
+});
+
+
 var showScramble = document.getElementById("showScramble");
 showScramble.addEventListener("click", function(){
     localStorage.setItem("showScramble", this.checked);
+});
+
+var autoCorrectRotation = document.getElementById("autoCorrectRotation");
+autoCorrectRotation.addEventListener("click", function(){
+    localStorage.setItem("autoCorrectRotation", this.checked);
 });
 
 var realScrambles = document.getElementById("realScrambles");
@@ -189,6 +233,16 @@ randAUF.addEventListener("click", function(){
 var prescramble = document.getElementById("prescramble");
 prescramble.addEventListener("click", function(){
     localStorage.setItem("prescramble", this.checked);
+});
+
+var randomizeSMirror = document.getElementById("randomizeSMirror");
+randomizeSMirror.addEventListener("click", function(){
+    localStorage.setItem("randomizeSMirror", this.checked);
+});
+
+var randomizeMMirror = document.getElementById("randomizeMMirror");
+randomizeMMirror.addEventListener("click", function(){
+    localStorage.setItem("randomizeMMirror", this.checked);
 });
 
 var goInOrder = document.getElementById("goInOrder");
@@ -208,6 +262,11 @@ goToNextCase.addEventListener("click", function(){
 var mirrorAllAlgs = document.getElementById("mirrorAllAlgs");
 mirrorAllAlgs.addEventListener("click", function(){
     localStorage.setItem("mirrorAllAlgs", this.checked);
+});
+
+var mirrorAllAlgsAcrossS = document.getElementById("mirrorAllAlgsAcrossS");
+mirrorAllAlgsAcrossS.addEventListener("click", function(){
+    localStorage.setItem("mirrorAllAlgsAcrossS", this.checked);
 });
 
 var userDefined = document.getElementById("userDefined");
@@ -254,6 +313,47 @@ deleteLast.addEventListener("click", function(){
     updateStats();
 });
 
+var addSelected = document.getElementById("addSelected");
+addSelected.addEventListener("click", function(){
+
+    algList = createAlgList(true);
+    for (let i = 0; i < algList.length; i++){
+        algList[i] = algList[i].split("/")[0]
+    }
+    document.getElementById("userDefinedAlgs").value += "\n" + algList.join("\n");
+});
+
+try{ // only for mobile
+    const leftPopUpButton = document.getElementById("left_popup_button");
+    const rightPopUpButton = document.getElementById("right_popup_button");
+    leftPopUpButton.addEventListener("click", function(){
+
+        const leftPopUp = document.getElementById("left_popup");
+        const rightPopUp = document.getElementById("right_popup");
+        if (leftPopUp.style.display == "block"){
+            leftPopUp.style.display = "none";
+        }
+        else {
+            leftPopUp.style.display = "block";
+            rightPopUp.style.display = "none";
+        }
+    });
+
+    rightPopUpButton.addEventListener("click", function(){
+
+        const leftPopUp = document.getElementById("left_popup");
+        const rightPopUp = document.getElementById("right_popup");
+        if (rightPopUp.style.display == "block"){
+            rightPopUp.style.display = "none";
+        }
+        else {
+            rightPopUp.style.display = "block";
+            leftPopUp.style.display = "none";
+        }
+    });
+} catch (error) {
+
+}
 function fillSticker(x, y, colour) {
     ctx.fillStyle = colour;
     ctx.fillRect(stickerSize * x, stickerSize * y, stickerSize, stickerSize);
@@ -432,6 +532,33 @@ function drawCube(cubeArray) {
         fillWithIndex(2, 5, "f", 8, cubeArray);
         fillWithIndex(3, 5, "f", 9, cubeArray);
         fillWithIndex(4, 5, "r", 7, cubeArray);
+
+        let lineValue = document.getElementById("lines").value;
+        if (lineValue === "none") return;
+        // Draw outlines
+        if (lineValue === "thin-gray") {
+            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = "#ccc";
+        } else if (lineValue === "thick-gray") {
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = "#ccc";
+        } else if (lineValue === "thin-black") {
+            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = "#000";
+        } else if (lineValue === "thick-black") {
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = "#000";
+        }
+        ctx.strokeRect(-1, -1, 1 + stickerSize * 2, 1 + stickerSize);
+        ctx.strokeRect(-1, stickerSize * 2, 1 + stickerSize * 2, stickerSize * 2);
+        ctx.strokeRect(-1, stickerSize * 5, 1 + stickerSize * 2, 1 + stickerSize);
+
+        ctx.strokeRect(stickerSize * 2, stickerSize, stickerSize, stickerSize);
+        ctx.strokeRect(stickerSize * 2, stickerSize * 4, stickerSize, stickerSize);
+
+        ctx.strokeRect(stickerSize * 3, -1, stickerSize * 2 + 1, 1 + stickerSize);
+        ctx.strokeRect(stickerSize * 3, stickerSize * 2, stickerSize * 2 + 1, stickerSize * 2);
+        ctx.strokeRect(stickerSize * 3, stickerSize * 5, stickerSize * 2 + 1, 1 + stickerSize);
     }
 }
 
@@ -451,17 +578,300 @@ function getRandAuf(letter){
     var aufs = [letter + " ", letter +"' ",letter + "2 ", ""];
     return aufs[rand];
 }
-//This will return an algorithm that has the same effect as algorithm, but with different moves.
 
-//This requires https://github.com/ldez/cubejs to work. The Cube.initSolver(); part takes a long time, so I removed it for the time being. 
+// Returns a random sequence of quarter turns of the specified length. Quarter turns are used to break OLL. Two consecutive moves may not be on the same axis.
+function getPremoves(length) {
+    var previous = "U"; // prevents first move from being U or D
+    var moveset = ['U', 'R', 'F', 'D', 'L', 'B'];
+    var amts = [" ","' "];
+    var randmove = "";
+    var sequence = "";
+    for (let i=0; i<length; i++) {
+        do {
+            randmove = moveset[Math.floor(Math.random()*moveset.length)];
+        } while (previous != "" && (randmove === previous || Math.abs(moveset.indexOf(randmove) - moveset.indexOf(previous)) === 3))
+        previous = randmove;
+        sequence += randmove;
+        sequence += amts[Math.floor(Math.random()*amts.length)];
+    }
+    return sequence;
+}
 
-function obfusticate(algorithm){
+function getPostmoves(length) {
+    var previous = "";
+    var moveset = ['U', 'R', 'F', 'D', 'L', 'B'];
+    var amts = [" ","' ", "2 "];
+    var randmove = "";
+    var sequence = "";
+    for (let i=0; i<length; i++) {
+        do {
+            randmove = moveset[Math.floor(Math.random()*moveset.length)];
+        } while (previous != "" && (randmove === previous || Math.abs(moveset.indexOf(randmove) - moveset.indexOf(previous)) === 3))
+        previous = randmove;
+        sequence += randmove;
+        sequence += amts[Math.floor(Math.random()*amts.length)];
+    }
+    return sequence;
+}
 
-    //Cube.initSolver();
-    var rc = new RubiksCube();
-    rc.doAlgorithm(algorithm);
-    orient = alg.cube.invert(rc.wcaOrient());
-    return (alg.cube.invert(rc.solution()) + " " + orient).replace(/2'/g, "2");
+
+function obfuscate(algorithm, numPremoves=2, minLength=8, numPostmoves=0){
+
+    /*
+
+    Henceforth let A = B, where A and B are algs, mean that A and B are exactly equivalent,
+    both in moves and in effect. 
+    
+    Let A ~ B mean that alg A and alg B have the same effect on a cube, but A=B evaluates to false
+
+    i.e. if A = F R U' R' U2 F' r' F L and B = F2 
+    Then A ~ B is a true statement. However A = B is False (both algs have the same effect but are written differently)
+
+    Let sol(alg)~alg' be a function which returns the solution to a cube scrambled by alg
+    and ob(alg)~alg to be a function which returns a series of moves that has the same effect as alg
+
+    sol and ob are evaluated by using a cube solver - so we want to avoid evaluating them more than necessary. Evaluating alg' is 
+    cheap, despite the fact that alg' ~ sol(alg)
+
+    This function first generates a series of premoves and a random series of postmoves, which are both free from rotations.
+
+    The goal of this function is to generate an algorithm obAlg such that
+
+    obAlg ~ alg
+    and 
+    obAlg = premoves + moves + postmoves
+
+    cube.js provides us with a sol function. However it only works for algorithms that return the cube to their original 
+    orientation. Let orient(alg) be be such that alg + orient(alg), is an alg which ends in its original orientation, and 
+    orient(alg) consists of only rotations
+
+    We can construct obAlg as follows:
+    
+    alg ~ premoves + ob(premoves' + alg + postmoves') + postmoves
+    alg ~ premoves + sol(postmoves + alg' + premoves) + postmoves
+    Let o = orient(postmoves + alg' + premoves)
+    
+    alg ~ premoves + sol(postmoves + alg' + premoves + o + o') + postmoves
+    alg ~ premoves + o + sol(postmoves + alg' + premoves + o) + postmoves
+
+    Having rotations in the middle is ugly, so we use the moveRotationsToStart function
+    to move them to the start using some alg manipulation
+
+    Note that all rotations will be at the start as long premoves and postmoves consist of outer layer turns only
+
+    */
+
+
+
+    var premoves = getPremoves(numPremoves);
+    var postmoves = getPostmoves(numPostmoves);
+
+    rc = new RubiksCube()
+    rc.doAlgorithm(postmoves + alg.cube.invert(algorithm) + premoves)
+    var o = rc.wcaOrient() 
+    solution = rc.solution()
+    
+
+    var obAlg = moveRotationsToStart(premoves, o) + solution  + postmoves;
+    var obAlg = alg.cube.simplify(obAlg).replace(/2'/g, "2");
+    return obAlg.split(" ").length >= minLength ? obAlg : obfuscate(algorithm, numPremoves+1, minLength, numPostmoves);
+
+}
+
+
+function parseMove(move){
+    if (move.trim() == ""){
+        return [null, null]
+    }
+
+    var myRegexp = /([RUFBLDrufbldxyzEMS])(\d*)('?)/g;
+    var match = myRegexp.exec(move.trim());
+
+    if (match!=null) {
+
+        var side = match[1];
+
+        var times = 1;
+        if (!match[2]=="") {
+            times = match[2] % 4;
+        }
+
+        if (match[3]=="'") {
+            times = (4 - times) % 4;
+        }
+
+        return [side, times]
+    }
+    else {
+        return [null, null];
+    }
+
+}
+function moveRotationsToStart(rotationFreeAlg, rotations){
+    // Needs moves of algs to be separated by spaces
+    // wide moves not supported
+
+    transformDict = {
+        "U": "U",
+        "R": "R",
+        "F": "F",
+        "B": "B",
+        "L": "L",
+        "D": "D"
+    }
+
+    rotationEffectDict = {
+        "x": {"U":"B", "B":"D", "D":"F", "F":"U"},
+        "y": {"F":"L", "L":"B", "B":"R", "R":"F"},
+        "z": {"U":"R", "R":"D", "D":"L", "L":"U"}
+    }
+
+    rotationsArr = rotations.trim().split(" ");
+    movesArr = rotationFreeAlg.trim().split(" ")
+
+    rotationsArr.forEach(rotation => {
+        let [side, times] = parseMove(rotation)
+
+        if (side !== null){
+
+            for (let i = 0; i<times; i++){
+                for (const [key1, value1] of Object.entries(transformDict)) {
+                    transformDict[key1] = rotationEffectDict[side][value1] || transformDict[key1]
+                }
+            }
+        }
+
+    })
+
+    newMovesArr = []
+    movesArr.forEach(move => {
+        let [side, times] = parseMove(move)
+        if (side !== null) {
+            newMovesArr.push(move.replace(side, transformDict[side]));
+        }
+    })
+
+    return rotations + " " + newMovesArr.join(" ");
+
+}
+
+
+function equivalentAlgs(alg1, alg2) {
+    const rc1 = new RubiksCube();
+    const rc2 = new RubiksCube();
+    rc1.doAlgorithm(alg1);
+    rc2.doAlgorithm(alg2);
+
+    return rc1.cubestate.length === rc2.cubestate.length && 
+           rc1.cubestate.every((value, index) => value === rc2.cubestate[index]);
+}
+
+
+function makeMove(side, times) {
+  let timesMod4 = times % 4
+  switch (timesMod4) {
+    case 1:
+      return side;
+    case 2:
+      return side + "2";
+    case 3:
+      return side + "'";
+    case 0:
+      return "";
+    default:
+      return ""
+  }
+  return ""
+}
+
+
+
+function cancelSingleAxis(originalAlg, axisMoves) {
+
+
+  moveCounter = {}
+  for (let move of axisMoves) {
+    moveCounter[move] = 0;
+  }
+
+  moves = originalAlg.split(" ")
+
+  newAlg = ""
+
+  let counting = false
+
+  for (let i = 0; i<moves.length; i++) {
+  	
+  	move = moves[i];
+    let [side, times] = parseMove(move);
+
+    let isLastLoop = i == moves.length - 1
+
+    if (isLastLoop){
+        // On the last loop, ongoing counts must be finished
+        if (counting){
+
+            if (axisMoves.includes(side)){
+                moveCounter[side] += times
+
+                for (let key in moveCounter) {
+                    let newMove = makeMove(key, moveCounter[key])
+                    newAlg += newMove + " "// (newMove == "" ? "" : " ")
+                }
+            }
+            else {
+
+                for (let key in moveCounter) {
+                    let newMove = makeMove(key, moveCounter[key])
+                    newAlg += newMove + " "// (newMove == "" ? "" : " ")
+                }
+                newAlg += move + " "//+ (move == "" ? "" : " ");
+            }
+
+        }
+        else {
+            newAlg += move + " "//+ (move == "" ? "" : " ");
+        }
+        break
+
+    }
+
+    if (!counting && axisMoves.includes(side)) {
+      counting = true;
+      for (let key of axisMoves) {
+        moveCounter[key] = 0;
+      }
+      moveCounter[side] += times
+    } else if (counting && axisMoves.includes(side)) {
+      moveCounter[side] += times
+    } else if (counting && !axisMoves.includes(side)) {
+      counting = false;
+      for (let key in moveCounter) {
+        let newMove = makeMove(key, moveCounter[key])
+        newAlg += newMove + " "// (newMove == "" ? "" : " ")
+      }
+      newAlg += move + " "
+    } else {
+      newAlg += move + " "//+ (move == "" ? "" : " ");
+    }
+  }
+
+  return newAlg
+
+}
+
+function cancelParallelMoves(originalAlg) {
+  /* Tested on algs which consist of outer moves and rotations only
+    TODO: implement wide moves by replacing r with L x, etc
+  */
+  
+  let cancelledAlg = cancelSingleAxis(originalAlg, ["U", "D", "y"])
+  cancelledAlg = cancelSingleAxis(cancelledAlg, ["R", "L", "x"])
+  cancelledAlg = cancelSingleAxis(cancelledAlg, ["F", "B", "z"])
+  cancelledAlg = cancelledAlg.replace(/\s+/g, ' ').trim();
+
+  return cancelledAlg
+  
 }
 
 
@@ -477,81 +887,111 @@ function addAUFs(algArr){
     return algArr;
 }
 
-function generateAlgScramble(raw_alg,set,obfusticateAlg,shouldPrescramble){
+function generateAlgScramble(raw_alg,set,obfuscateAlg,shouldPrescramble){
     
-    if (set == "F3L"){
+    if (set == "F3L" && !document.getElementById("userDefined").checked){
         return Cube.random().solve();
     }
-    if (!obfusticateAlg){
+    if (!obfuscateAlg){
         return alg.cube.invert(raw_alg);
-    } else if (!shouldPrescramble){//if realscrambles not checked but should not prescramble, just obfusticate the inverse
-        return obfusticate(alg.cube.invert(raw_alg));
+    } else if (!shouldPrescramble){//if realscrambles not checked but should not prescramble, just obfuscate the inverse
+        return obfuscate(alg.cube.invert(raw_alg));
     }
 
     switch(set){
-		case "ZZF2L":
-			return generatePreScramble(raw_alg, "RBR'FRB'R'F',RUR'URU2R',U,R'U'RU'R'U2R,F2U'R'LF2L'RU'F2", 1000, true);//ZBLLscramble
+        case "ZBLS (Chad Batten, Tao Yu)":
+        case "VHLS (Chad Batten)":
+        case "ZBLSE (John McWilliams)":
+            return generatePreScramble(raw_alg, "RBR'FRB'R'F',RUR'URU2R',U,R'U'RU'R'U2R,F2U'R'LF2L'RU'F2", 1000, true);//ZBLLscramble
+
+        case "OLL":
+        case "OLL (Feliks Zemdegs - Cubeskills)":
+        case "VLS":
+        case "WVLS":
+        case "OH OLL":
+        case "CLS (Justin Taylor)":
+        case "VLS (Jayden McNeill)":
+		case "ZZ OLS (Egide Hirwa)":
+            return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true);//PLL scramble
+
+        case "ELS (FR) (Justin Taylor)":
+            return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U,R' D' R U R' D R,R F' L F R' F' L' F,R2 U R2' U R2 U2' R2',R U' R' U R U2' R' U R U' R'", 100, true);//CLS FR scramble
+        case "ELS (BR) (Justin Taylor)":
+            return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U,R2' U' R2 U' R2 U2' R2,R' U2 R U' R' U' R,R' U R U2' R' U R,R' U R U' R' U2' R U' R' U R", 100, true);//CLS FR scramble
+
+        case "OLLCP":
+        case "OLLCP (Cale Schoon)":
+        case "OLLCP (Justin Taylor, WIP)":
+        case "COLL":
+        case "COLL (Tao Yu)":
+        case "CP solved OLLCP":
+        case "Briggs-Taylor Reduction COLL":
+            return generatePreScramble(raw_alg, "F2U'R'LF2RL'U'F2,U", 5000, true);//EPLL scramble
+
+        case "CMLL":
+        case "OH CMLL":
+            return generatePreScramble(raw_alg, "M2,MUM,MUM',MU'M,MU'M',MU2M,MU2M',M'UM,M'UM',M'U'M,M'U'M',M'U2M,M'U2M'", 100, true);//LSE scramble
+
+        case "3x3 CLL (Justin Taylor)":
+            return generatePreScramble(raw_alg, "F2 U' R' L F2 L' R U' F2, R' U2' R2 U R' U' R' U2' r U R U' r', U", 100, true);//ELL scramble
+
+        case "42 (Shadowslice)":
+            return generatePreScramble(raw_alg, "M'UM, M'U'M, MUM', MU'M',M2, RUMU'R'M", 500, true);//L7E scramble
+
+        case "OL5C (SqAree)":
+            return generatePreScramble(raw_alg, "R2,U,D", 100, true);//<U, D, R2> scramble
+
+        case "TOLS (Justin Taylor)":
         case "TSLE":
             return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //TTLL scramble
-		case "TSLE (Tao Yu's trainer)":
-            return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //TTLL scramble
-		case "OLS (Full)":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "Summer Variation (Case 1)":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 2":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 3":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 4":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "Winter Variation (Case 5)":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "Winter Variation (from the spreadsheet)":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 6":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 7":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 8":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 9":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 10":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 11":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 12":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 13":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 14":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 15":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 16":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 17":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 18":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 19":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
-		case "OLS Case 20":
-			return generatePreScramble(raw_alg, "R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U", 100, true); //PLL scramble
+
+        case "F2L":
+            return generatePreScramble(raw_alg, "FRUR'U'F',RBR'FRB'R'F',RUR'URU2R',U", 100, true);
+
+        case "Ortega OLL":
+            return generatePreScramble(raw_alg, "R F' R B2 R' F R B2 R2,R'FR'B2'RF'R'B2'R2,U,D", 100, true);
+        case "CPLS (Arc)":
+        case "CPEOLL":
+            return generatePreScramble(raw_alg, "R U R' U R U2' R', U, L' U' L U' L' U2 L", 100, true);//2GLL scramble
+
+        case "Pseudo2GLL (no algs)":
+            return generatePreScramble(raw_alg, "R U R' U R U2' R', U, L' U' L U' L' U2 L, F R' F' M F R F' M'", 10000, true);
+        case "Ribbon Multislotting":
+            return generatePreScramble(raw_alg, "R2 U2' R2' U' R2 U' R2,R'FR'B2'RF'R'B2'R2,F2U'R'LF2RL'U'F2,U,R U' R' U2 R U' R' ,R U2' R' U R U R' ,R U R' U R U2' R' ,R U2 R' U' R U' R' ", 10000, true);
+        case "TDR (Trangium, Yash Mehta)":
+            return generatePreScramble(raw_alg, "RBR'FRB'R'F',RUR'URU2R',U,R'U'RU'R'U2R,F2U'R'LF2L'RU'F2", 1000, true, getRandAuf("D")); // ZBLL-ABF scramble
+        case "Domino Reduction":
+            let scrambleLength = 150 
+            let generator = ["E", "E'", "U D", "U D'", "M2", "S2", "U2 D", "D U2", "U", "U2", "U'", "R2", "L2", "B2", "F2", "D", "D2", "D'"];
+            let drScramble = Array.from({length: scrambleLength}, () => generator[Math.floor(Math.random() * generator.length)]).join(" ");
+            let rc = new RubiksCube();
+            rc.doAlgorithm(drScramble);
+            return obfuscate(drScramble + rc.wcaOrient() + alg.cube.invert(raw_alg), numPremoves=3, minLength=13, numPostmoves=5);
         default:  
-            return obfusticate(alg.cube.invert(raw_alg));
+
+            let inverse = alg.cube.invert(raw_alg);
+            if (document.getElementById("userDefined").checked){
+                // postmoves and premoves should be used when the algset is unknown
+                // Ensures that it shuold be hard to guess the solution even for 
+                // unusual and unexpected use cases
+                return obfuscate(inverse, numPremoves=3, minLength=13, numPostmoves=3);
+            }
+            else {
+                // Use only premoves by default to save time 
+                // TODO: it may be worth researching this
+                return obfuscate(inverse);
+            }
     }
 
 }
 
 
 
-function generatePreScramble(raw_alg, generator, times, obfusticateAlg){
+function generatePreScramble(raw_alg, generator, times, obfuscateAlg, premoves=""){
 
     var genArray = generator.split(",");
 
-    var scramble = "";
+    var scramble = premoves;
     var i = 0;
 
     for (; i<times; i++){
@@ -560,8 +1000,19 @@ function generatePreScramble(raw_alg, generator, times, obfusticateAlg){
     }
     scramble += alg.cube.invert(raw_alg);
 
-    if (obfusticateAlg){
-        return obfusticate(scramble);
+    if (obfuscateAlg){
+        
+        if (document.getElementById("userDefined").checked){
+            // postmoves and premoves should be used when the algset is unknown
+            // Ensures that it shuold be hard to guess the solution even for 
+            // unusual and unexpected use cases
+            return obfuscate(scramble, numPremoves=3, minLength=13, numPostmoves=3);
+        }
+        else {
+            // Use only premoves by default to save time 
+            // TODO: it may be worth researching this
+            return obfuscate(scramble);
+        }
     }
     else {
         return scramble;
@@ -570,11 +1021,26 @@ function generatePreScramble(raw_alg, generator, times, obfusticateAlg){
 }
 function generateOrientation(){
 
-    if (document.getElementById("fullCN").checked){
-        return getRandAuf("x")+getRandAuf("y")+getRandAuf("z");
-    }
 
     var cn1 = document.getElementById("colourneutrality1").value;
+    if (document.getElementById("fullCN").checked){
+        var firstRotation = ["", "x", "x'", "x2", "y", "y'"]
+        // each one of these first rotations puts a differnt color face on F
+        var secondRotation = ["", "z", "z'", "z2"]
+        // each second rotation puts a different edge on UF
+        // each unique combination of a first and second rotation 
+        // must result in a unique orientation because a different color is on F
+        // and a different edge is on UF. Hence all 6x4=24 rotations are reached.
+
+        var rand1 = Math.floor(Math.random()*6);
+        var rand2 = Math.floor(Math.random()*4);
+        var randomPart = firstRotation[rand1] + secondRotation[rand2];
+        if (randomPart == "x2z2"){
+            randomPart = "y2";
+        }
+        var fullOrientation = cn1 + randomPart; // Preorientation to perform starting from white top green front
+        return [fullOrientation, randomPart];
+    }
     var cn2 = document.getElementById("colourneutrality2").value;
     var cn3 = document.getElementById("colourneutrality3").value;
 
@@ -588,11 +1054,13 @@ function generateOrientation(){
     var rand2 = Math.floor(Math.random()*4);
 
     //console.log(cn1 + cn2.repeat(rand1) + cn3.repeat(rand2));
-    return cn1 + cn2.repeat(rand1) + cn3.repeat(rand2);
+    var randomPart = cn2.repeat(rand1) + cn3.repeat(rand2); // Random part of the orientation
+    var fullOrientation = cn1 + randomPart; // Preorientation to perform starting from white top green front
+    return [fullOrientation, randomPart];
 }
 
 class AlgTest {
-    constructor(rawAlgs, scramble, solutions, preorientation, solveTime, time, set, visualCubeView, cubeType) {
+    constructor(rawAlgs, scramble, solutions, preorientation, solveTime, time, set, visualCubeView, cubeType, orientRandPart) {
         this.rawAlgs = rawAlgs;
         this.scramble = scramble;
         this.solutions = solutions;
@@ -602,15 +1070,53 @@ class AlgTest {
         this.set = set;
         this.visualCubeView = visualCubeView;
         this.cubeType = cubeType;
+        this.orientRandPart = orientRandPart;
     }
+
+    getHtmlFormattedScramble() {
+        let cancelled = alg.cube.simplify(this.orientRandPart + this.scramble);
+        cancelled = cancelParallelMoves(cancelled);
+        let parts = cancelled.split(" ")
+        let htmlStr = ""
+        let stopColoring = false // only want to color the rotations at the start of the alg
+        for (let part of parts){
+            if (part.includes("x") || part.includes("y") || part.includes("z")){
+                if (!stopColoring){
+                    htmlStr = htmlStr + `<span style=\"color: #90f182\">${part}</span> `
+                }
+                
+            }
+            else {
+                htmlStr = htmlStr + part + " "
+                stopColoring = true;
+            }
+        }
+        return htmlStr.trim().replace(/2'/g, "2");
+
+    }
+}
+
+// Adds extra rotations to the end of an alg to reorient
+function correctRotation(alg) {
+    var rc = new RubiksCube();
+    rc.doAlgorithm(alg);
+    var ori = rc.wcaOrient();
+	
+    return alg + " " + ori;
 }
 
 function generateAlgTest(){
 
     var set = document.getElementById("algsetpicker").value;
-    var obfusticateAlg = document.getElementById("realScrambles").checked;
+    var obfuscateAlg = document.getElementById("realScrambles").checked;
     var shouldPrescramble = document.getElementById("prescramble").checked;
     var randAUF = document.getElementById("randAUF").checked;
+
+    let neverAUF = ["Domino Reduction"];
+
+    if (neverAUF.includes(set)){
+        randAUF = false;
+    }
 
     var algList = createAlgList()
     if (shouldRecalculateStatistics){
@@ -620,9 +1126,27 @@ function generateAlgTest(){
     var rawAlgStr = randomFromList(algList);
     var rawAlgs = rawAlgStr.split("/");
     rawAlgs = fixAlgorithms(rawAlgs);
-    if (mirrorAllAlgs.checked){
-        rawAlgs = mirrorAlgsAcrossM(rawAlgs);
+
+    //Do non-randomized mirroring first. This allows a user to practise left slots, back slots, front slots, rights slots
+    // etc for F2L like algsets
+    if (mirrorAllAlgs.checked && !randomizeMMirror.checked) {
+        rawAlgs = mirrorAlgsAcrossAxis(rawAlgs, axis="M");
     }
+    if (mirrorAllAlgsAcrossS.checked && !randomizeSMirror.checked) {
+        rawAlgs = mirrorAlgsAcrossAxis(rawAlgs, axis="S");
+    }
+    if (mirrorAllAlgs.checked && randomizeMMirror.checked) {
+        if (Math.random() > 0.5){
+            rawAlgs = mirrorAlgsAcrossAxis(rawAlgs, axis="M");
+        }
+    }
+    if (mirrorAllAlgsAcrossS.checked && randomizeSMirror.checked) {
+        if (Math.random() > 0.5){
+            rawAlgs = mirrorAlgsAcrossAxis(rawAlgs, axis="S");
+        }
+    }
+
+
     var solutions;
     if (randAUF){
         solutions = addAUFs(rawAlgs);
@@ -630,11 +1154,14 @@ function generateAlgTest(){
         solutions = rawAlgs;
     }
 
-    var scramble = generateAlgScramble(solutions[0],set,obfusticateAlg,shouldPrescramble);
+
+
+    var scramble = generateAlgScramble(localStorage.getItem("autoCorrectRotation")=="true"?correctRotation(solutions[0]):solutions[0],set,obfuscateAlg,shouldPrescramble);
     if (set == "F3L"){
         solutions = [alg.cube.invert(scramble).replace(/2'/g, "2")];
     }
-    var preorientation = generateOrientation();
+    var [preorientation, orientRandPart] = generateOrientation();
+    orientRandPart = alg.cube.simplify(orientRandPart);
 
     var cubeType = document.getElementById("cubeType");
 
@@ -642,7 +1169,7 @@ function generateAlgTest(){
     var time = Date.now();
     var visualCubeView = "plan";
 
-    var algTest = new AlgTest(rawAlgs, scramble, solutions, preorientation, solveTime, time, set, visualCubeView, cubeType);
+    var algTest = new AlgTest(rawAlgs, scramble, solutions, preorientation, solveTime, time, set, visualCubeView, cubeType, orientRandPart);
     return algTest;
 }
 function testAlg(algTest, addToHistory=true){
@@ -650,7 +1177,7 @@ function testAlg(algTest, addToHistory=true){
     var scramble = document.getElementById("scramble");
 
     if (document.getElementById("showScramble").checked){
-        scramble.innerHTML = algTest.scramble;
+        scramble.innerHTML = algTest.getHtmlFormattedScramble()//"<span style=\"color: #90f182\">" + algTest.orientRandPart + "</span>" + " " + algTest.scramble;
     } else{
         scramble.innerHTML = "&nbsp;";
     }
@@ -796,7 +1323,9 @@ function updateVisualCube(algorithm){
             break;
     }
 
-    var imgsrc = "https://www.cubing.net/api/visualcube/?fmt=svg&size=300&view=plan&bg=black&pzl=" + pzl + "&alg=x2" + algorithm;
+    var view = localStorage.getItem("visualCubeView");
+
+    var imgsrc = "https://www.cubing.net/api/visualcube/?fmt=svg&size=300&view=" + view + "&bg=black&pzl=" + pzl + "&alg=x2" + algorithm;
 
     if (useCustomColourScheme.checked){
         validateCustomColourScheme();
@@ -837,7 +1366,8 @@ function displayAlgorithmFromHistory(index){
         timerText = algTest.solveTime.toString()
     }
 
-    updateTrainer(algTest.scramble, algTest.solutions.join("<br><br>"), algTest.preorientation+algTest.scramble, timerText);
+    //updateTrainer("<span style=\"color: #90f182\">" + algTest.orientRandPart + "</span>" + " "+ algTest.scramble, algTest.solutions.join("<br><br>"), algTest.preorientation+algTest.scramble, timerText);
+    updateTrainer(algTest.getHtmlFormattedScramble(), algTest.solutions.join("<br><br>"), algTest.preorientation+algTest.scramble, timerText);
 
     scramble.style.color = '#e6e6e6';
 }
@@ -853,7 +1383,8 @@ function displayAlgorithmForPreviousTest(reTest=true){//not a great name
         reTestAlg();
     }
 
-    updateTrainer(lastTest.scramble, lastTest.solutions.join("<br><br>"), null, null);
+    //updateTrainer("<span style=\"color: #90f182\">" + lastTest.orientRandPart + "</span>" + " "+ lastTest.scramble, lastTest.solutions.join("<br><br>"), null, null);
+    updateTrainer(lastTest.getHtmlFormattedScramble(), lastTest.solutions.join("<br><br>"), null, null);
 
     scramble.style.color = '#e6e6e6';
 }
@@ -1022,13 +1553,20 @@ function clearSelectedAlgsets(){
 function findMistakesInUserAlgs(userAlgs){
     var errorMessage = "";
     var newList = [];
+    var newListDisplay = [] // contains all valid algs + commented algs
     for (var i = 0; i < userAlgs.length; i++){
+        if (userAlgs[i].trim().startsWith("#")){
+            // Allow 'commenting' of algs with #, like python
+            newListDisplay.push(userAlgs[i]);
+            continue;
+        }
         userAlgs[i] = userAlgs[i].replace(/[\u2018\u0060\u2019\u00B4]/g, "'"); 
         //replace astrophe like characters with '
         try {
             alg.cube.simplify(userAlgs[i]);
-            if (userAlgs[i].trim()!=""){
+            if (userAlgs[i].trim()!="" ){
                 newList.push(userAlgs[i]);
+                newListDisplay.push(userAlgs[i]);
             }
         }
         catch(err){
@@ -1040,19 +1578,23 @@ function findMistakesInUserAlgs(userAlgs){
         alert(errorMessage);
     }
 
-    document.getElementById("userDefinedAlgs").value = newList.join("\n");
+    document.getElementById("userDefinedAlgs").value = newListDisplay.join("\n");
     localStorage.setItem("userDefinedAlgs", newList.join("\n"));
     return newList;
 }
 
-function createAlgList(){
+function createAlgList(overrideUserDefined=false){
 
-    if (document.getElementById("userDefined").checked){
-        algList = findMistakesInUserAlgs(document.getElementById("userDefinedAlgs").value.split("\n"));
-        if (algList.length==0){
-            alert("No algs found");
+    if (!overrideUserDefined){
+        // Sometimes we want to ignore that the userdefined box is checked, and 
+        // retrieve whatever is selected from the trainer itself
+        if (document.getElementById("userDefined").checked){
+            algList = findMistakesInUserAlgs(document.getElementById("userDefinedAlgs").value.split("\n"));
+            if (algList.length==0){
+                alert("Please enter some algs into the User Defined Algs box.");
+            }
+            return algList;
         }
-        return algList;
     }
     var algList = [];
 
@@ -1081,9 +1623,14 @@ function createAlgList(){
     return algList;
 }
 
-function mirrorAlgsAcrossM(algList){
+function mirrorAlgsAcrossAxis(algList, axis="M"){
     algList = fixAlgorithms(algList);
-    return algList.map(x => alg.cube.mirrorAcrossM(x));
+    if (axis=="M"){
+        return algList.map(x => alg.cube.mirrorAcrossM(x));
+    }
+    else {
+        return algList.map(x => alg.cube.mirrorAcrossS(x));
+    }
 }
 
 function averageMovecount(algList, metric, includeAUF){
@@ -1135,7 +1682,7 @@ function setVirtualCube(setting){
 function setTimerDisplay(setting){
     var timer = document.getElementById("timer");
     if (!isUsingVirtualCube()){
-        //alert("The timer can only be hidden when using the simulator cube.");
+        alert("The timer can only be hidden when using the simulator cube.");
         document.getElementById("hideTimer").checked = false;
     }
     else if (setting){
@@ -1157,57 +1704,81 @@ function isUsingVirtualCube(){
 }
 
 
-var listener = new window.keypress.Listener();
-var keymaps = [
+var listener = new Listener();
 
-    ["i", "R"], 
-    ["k" , "R'"],
-    ["j" , "U"],
-    ["f" , "U'"],
-    ["h" , "F"],
-    ["g" , "F'"],
-    ["w" , "B"],
-    ["o" , "B'"],
-    ["d" , "L"],
-    ["e" , "L'"],
-    ["s" , "D"],
-    ["l" , "D'"],
-    ["u" , "r"],
-    ["m" , "r'"],
-    ["v" , "l"],
-    ["r" , "l'"],
-    ["`" , "M"],
-    ["'" , "M"],
-    ["[" , "M'"],
-    ["t" , "x"],
-    ["n" , "x'"],
-    [";" , "y"],
-    ["p" , "z"],
-    ["q" , "z'"],
-    ["a" , "y'"],
-    ["shift h", "S F'"],
-    ["shift g", "S' F"],
-    ["x", "E"],
-    [".", "E'"]];
+lastKeyMap = null;
 
 
-keymaps.forEach(function(keymap){
-    listener.register_combo({
-        "keys"              : keymap[0],
-        "on_keydown"        : function() {  doAlg(keymap[1]);},     
-    });
-});
-listener.simple_combo("backspace", function() { displayAlgorithmForPreviousTest();});
-listener.simple_combo("esc", function() {
-    if (isUsingVirtualCube()){
-        stopTimer(false);
+function handleLeftButton() {
+    if (algorithmHistory.length<=1 || timerIsRunning){
+        return;
     }
-    reTestAlg();
-    document.getElementById("scramble").innerHTML = "&nbsp;";
-    document.getElementById("algdisp").innerHTML = "";
+    historyIndex--;
 
-});
+    if (historyIndex<0){
+        alert('Reached end of solve log');
+        historyIndex = 0;
+    }
+    displayAlgorithmFromHistory(historyIndex);
+}
 
+function handleRightButton() {
+    if (timerIsRunning){
+        return;
+    }
+    historyIndex++;
+    if (historyIndex>=algorithmHistory.length){
+        nextScramble();
+        doNothingNextTimeSpaceIsPressed = false;
+        return;
+    }
+
+    displayAlgorithmFromHistory(historyIndex);
+}
+
+try { //only for mobile
+document.getElementById("onscreenLeft").addEventListener("click", handleLeftButton);
+document.getElementById("onscreenRight").addEventListener("click", handleRightButton);
+} catch (error) {
+
+}
+
+function updateControls() {
+    let keymaps = getKeyMaps();
+
+    if (JSON.stringify(keymaps) === JSON.stringify(lastKeyMap)) {
+        return false;
+    }
+
+    lastKeyMap = keymaps;
+
+    listener.reset();
+
+    keymaps.forEach(function(keymap){
+        listener.register(keymap[0], function() {  doAlg(keymap[1]) });
+    });
+    listener.register(new KeyCombo("Backspace"), function() { displayAlgorithmForPreviousTest();});
+    listener.register(new KeyCombo("Escape"), function() {
+        if (isUsingVirtualCube()){
+            stopTimer(false);
+        }
+        reTestAlg();
+        document.getElementById("scramble").innerHTML = "&nbsp;";
+        document.getElementById("algdisp").innerHTML = "";
+    });
+    listener.register(new KeyCombo("Enter"), function() {
+        nextScramble();
+        doNothingNextTimeSpaceIsPressed = false;
+    });
+    listener.register(new KeyCombo("Tab"), function() {
+        nextScramble();
+        doNothingNextTimeSpaceIsPressed = false;
+    });
+    listener.register(new KeyCombo("ArrowLeft"), handleLeftButton);
+    listener.register(new KeyCombo("ArrowRight"), handleRightButton);
+}
+
+setInterval(updateControls, 300);
 
 
 function nextScramble(displayReady=true){
@@ -1225,44 +1796,12 @@ function nextScramble(displayReady=true){
     }
     historyIndex = algorithmHistory.length - 1;
 }
-listener.simple_combo("enter", function() {
-    nextScramble();
-    doNothingNextTimeSpaceIsPressed = false;
-});
-listener.simple_combo("tab", function() {
-    nextScramble();
-    doNothingNextTimeSpaceIsPressed = false;
-});
 
 var historyIndex;
-listener.simple_combo("left", function() {
-    if (algorithmHistory.length<=1 || timerIsRunning){
-        return;
-    }
-    historyIndex--;
 
-    if (historyIndex<0){
-        alert('Reached end of solve log');
-        historyIndex = 0;
-    }
-    displayAlgorithmFromHistory(historyIndex);
-});
-listener.simple_combo("right", function() { 
-    if (timerIsRunning){
-        return;
-    }
-    historyIndex++;
-    if (historyIndex>=algorithmHistory.length){
-        nextScramble();
-        doNothingNextTimeSpaceIsPressed = false;
-        return;
-    }
 
-    displayAlgorithmFromHistory(historyIndex);
-});
-
-document.onkeyup = function(event) {
-    if (event.keyCode == 32) { //space
+function release(event) {
+    if (event.key == " " || event.type=="touchend") { //space
 
         if (document.activeElement.type == "textarea"){
             return;
@@ -1283,11 +1822,17 @@ document.onkeyup = function(event) {
         }
     }
 };
+document.onkeyup = release
+try { //only for mobile
+document.getElementById("touchStartArea").addEventListener("touchend", release);
+} catch(error) {
+
+}
 
 var doNothingNextTimeSpaceIsPressed = true;
-document.onkeydown = function(event) { //Stops the screen from scrolling down when you press space
+function press(event) { //Stops the screen from scrolling down when you press space
 
-    if (event.keyCode == 32) { //space
+    if (event.key == " " || event.type == "touchstart") { //space
         if (document.activeElement.type == "textarea"){
             return;
         }
@@ -1331,6 +1876,13 @@ document.onkeydown = function(event) { //Stops the screen from scrolling down wh
     }
 
 };
+document.onkeydown = press;
+try { //only for mobile
+    document.getElementById("touchStartArea").addEventListener("touchstart", press);
+} catch (error) {
+
+}
+
 
 class SolveTime {
     constructor(time, penalty) {
@@ -1369,7 +1921,6 @@ class SolveTime {
 
 
 
-
 //CUBE OBJECT
 function RubiksCube() {
     this.cubestate = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6];
@@ -1402,29 +1953,37 @@ function RubiksCube() {
         if (this.cubestate[13]==1) {//R face
             this.doAlgorithm("z'");
             moves +="z'";
+            moves += " ";
         } else if (this.cubestate[22]==1) {//on F face
             this.doAlgorithm("x");
             moves+="x";
+            moves += " ";
         } else if (this.cubestate[31]==1) {//on D face
             this.doAlgorithm("x2");
             moves+="x2";
+            moves += " ";
         } else if (this.cubestate[40]==1) {//on L face
             this.doAlgorithm("z");
             moves+="z";
+            moves += " ";
         } else if (this.cubestate[49]==1) {//on B face
             this.doAlgorithm("x'");
             moves+="x'";
+            moves += " ";
         }
 
         if (this.cubestate[13]==3) {//R face
             this.doAlgorithm("y");
             moves+="y";
+            moves += " ";
         } else if (this.cubestate[40]==3) {//on L face
             this.doAlgorithm("y'");
             moves+="y'";
+            moves += " ";
         } else if (this.cubestate[49]==3) {//on B face
             this.doAlgorithm("y2");
             moves+="y2";
+            moves += " ";
         }
 
         return moves;

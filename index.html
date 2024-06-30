@@ -1,51 +1,65 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html>
+
+    <head>
         <title>ZZ-CTrainer</title>
-        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
 
 
-        <div id="loader" style="display: none;"></div>
-        <div style="display: block;" id="page" class="animate-bottom">
+        <div id="loader"></div>
+        <div style="display:none;" id="page" class="animate-bottom">
 
-            <p id="scramble" class="scramble" style="color: white;">Scramble</p>
+            <p id="scramble" class=scramble>Scramble</p>
             <hr>
-            <div class="column_left">
+            <div class=column_left>
 
-                <select id="algsetpicker" size="18" class="algsetpicker"></select>
+                <select id="algsetpicker" size=18 class=algsetpicker>
+                </select>
                 <div id="cboxes"></div>
                 <br>Leave all checkboxes unchecked to test on the full algset.
+
                 <br>
 
                 <h2>Settings</h2>
                 <form action="javascript:void(0);">
                     
                     <input id="useVirtual" type="checkbox">Use Virtual Cube<br>
-                    <input id="hideTimer" type="checkbox">Hide/Reset timer<br>
-                    <input id="showScramble" type="checkbox" checked="checked">Show Scramble<br>
-                    <input id="realScrambles" type="checkbox" checked="checked">Use Real Scrambles<br>
-                    <input id="randAUF" type="checkbox" checked="checked">Random AUF<br>
-                    <input id="prescramble" type="checkbox" checked="checked">Scramble subsequent steps (requires real scrambles to be checked)<br>
+                    <input id="hideTimer" type="checkbox">Hide timer<br>
+                    <input id="showScramble" type="checkbox">Show Scramble<br>
+                    <input id="realScrambles" type="checkbox">Use Real Scrambles<br>
+                    <input id="randAUF" type="checkbox">Random AUF<br>
+                    <input id="prescramble" type="checkbox" checked="true">Scramble subsequent steps (requires real scrambles to be checked)<br>
                     <input id="goInOrder" type="checkbox">Go in order<br>
                     <input id="goToNextCase" type="checkbox">Don't show alg after stopping timer (press the left arrow key to view previous case)<br>
-                    <input id="mirrorAllAlgs" type="checkbox">Mirror all algs across the M slice<br>
+                    <input id="mirrorAllAlgs" type="checkbox">Mirror across <span style="font-family: Consolas, monospace;">M</span> <input id="randomizeMMirror" type="checkbox">Randomize<br>
+                    <input id="mirrorAllAlgsAcrossS" type="checkbox">Mirror across <span style="font-family: Consolas, monospace;">S</span> <input id="randomizeSMirror" type="checkbox">Randomize<br>
+                    <input id="autoCorrectRotation" type="checkbox">Auto-fix algorithm rotation<br>
+
+                    Line style <select id="lines">
+                        <option value="none"> None </option>
+                        <option selected value="thin-black"> Thin black </option>
+                        <option value="thick-black"> Thick black </option>
+                        <option value="thin-gray"> Thin gray </option>
+                        <option value="thick-gray"> Thick gray </option>
+                    </select> <br>
                     Virtual cube size: <select id="cubeType">
-                        <option value="3x3" default="" selected="selected">3x3</option>
+                        <option value="3x3" default>3x3</option>
                         <option value="2x2">2x2</option>
                     </select><br><br>
                     <button id="connectGiiker">Connect Giiker Cube</button><br>
-                    When a giiker cube is connected, all moves made on 
-the giiker will be reflected on the virtual cube. The giiker cube should
- be held with white on top and green in front. 
+                    
+                    This feature works with the Giiker Cube i3S and i3SE versions. Rubik's Connect, Gan i and GoCube smart cubes will not work with this site.<br><br>
+                    
+                    When a giiker cube is connected, all moves made on the giiker will be reflected on the virtual cube. The giiker cube should be held with white on top and green in front. 
                     <br><br>
                     
-                    <input id="userDefined" type="checkbox">Use user defined algset<br>
-                    <textarea id="userDefinedAlgs" cols="50" rows="50" style="display:none" onfocus="listener.stop_listening();" onblur="listener.listen();" placeholder="Place one alg per line"></textarea>
-                    <br><br>
+                    <input id="userDefined" type="checkbox">Use user defined algset <button id="addSelected">Add currently selected algs</button><br>
+                    <textarea id="userDefinedAlgs" cols=50 rows=50 style="display:none" onfocus="listener.stop_listening();" onblur="listener.listen();" placeholder="Place one alg per line. Lines starting with # will be ignored"></textarea>
+                    <br>
 
                     Preorientation: <br>
 
@@ -53,47 +67,49 @@ the giiker will be reflected on the virtual cube. The giiker cube should
                     or<br>
                     Starting from WCA orientation: <br>
                     First do one
-                    <input type="text" id="colourneutrality1" onfocus="listener.stop_listening();" onblur="listener.listen();" size="1"> 
+                    <input type="text" id="colourneutrality1" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="1"> 
                     rotation<br>
 
                     then do a random number of 
-                    <input type="text" id="colourneutrality2" onfocus="listener.stop_listening();" onblur="listener.listen();" size="1"> 
+                    <input type="text" id="colourneutrality2" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="1"> 
                     rotations, <br>
 
                     and finally do a random number of 
-                    <input type="text" id="colourneutrality3" onfocus="listener.stop_listening();" onblur="listener.listen();" size="1"> 
+                    <input type="text" id="colourneutrality3" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="1"> 
                     rotations.<br>
+                    <br>
+                    <a href="scramblingNote.html">Note on preorientation settings</a> 
                     <br><br>
 
 
                     <input id="useCustomColourScheme" type="checkbox"><label for="useCustomColourScheme"> Use custom colour scheme:</label><br>
                     Enter colour names, or RGB values as #RRGGBB.<br>
                     <table>
-                        <tbody><tr>
+                        <tr>
                             <td><label for="customColourU">U:</label></td>
-                            <td><input type="text" id="customColourU" value="white" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
+                            <td><input type="text" id="customColourU" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
                         </tr>
                         <tr>
                             <td><label for="customColourD">D:</label></td>
-                            <td><input type="text" id="customColourD" value="yellow" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
+                            <td><input type="text" id="customColourD" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
                         </tr>
                         <tr>
                             <td><label for="customColourF">F:</label></td>
-                            <td><input type="text" id="customColourF" value="green" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
+                            <td><input type="text" id="customColourF" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
                         </tr>
                         <tr>
                             <td><label for="customColourB">B:</label></td>
-                            <td><input type="text" id="customColourB" value="blue" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
+                            <td><input type="text" id="customColourB" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
                         </tr>
                         <tr>
                             <td><label for="customColourR">R:</label></td>
-                            <td><input type="text" id="customColourR" value="red" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
+                            <td><input type="text" id="customColourR" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
                         </tr>
                         <tr>
                             <td><label for="customColourL">L:</label></td>
-                            <td><input type="text" id="customColourL" value="orange" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
+                            <td><input type="text" id="customColourL" value="" onfocus="listener.stop_listening();" onblur="listener.listen();" size="8"> </td>
                         </tr>
-                    </tbody></table>
+                    </table>
                     <button id="resetCustomColourScheme" type="button">Reset</button>
 
                 </form>
@@ -105,13 +121,13 @@ the giiker will be reflected on the virtual cube. The giiker cube should
 				<br><br>
 				Huge thanks to Tao Yu for helping me with working out the errors and getting better algs for ZZ-C (OLS)
 				<br><br>
-				ZZMS Discord TTLL <a href="https://docs.google.com/spreadsheets/d/1ySITIE2DNXcSr4DkSC1fGQ1avyLscVdJ7vXgrrnmCpE/edit?usp=sharing">document</a>
+				ZMS Discord TTLL <a href="https://docs.google.com/spreadsheets/d/1ySITIE2DNXcSr4DkSC1fGQ1avyLscVdJ7vXgrrnmCpE/edit?usp=sharing">document</a>
 				<br>
 				𝝅's TTLL <a href="https://docs.google.com/spreadsheets/d/1DYHqEcoPLAmXWsOebbRgHbvJ7L-GdCGxkevMM1GdGgo/">document</a>
 				<br>
 				Swagrid's ZZ-CT <a href="https://docs.google.com/spreadsheets/d/1DYHqEcoPLAmXWsOebbRgHbvJ7L-GdCGxkevMM1GdGgo/">document</a>
 				<br>
-                My ZZ-CT <a href="https://docs.google.com/document/d/1XE1AYZ66MQ8fPJEXhDVu2dfHXoW9kz8pAXp7kXTYQ0k/view#">document</a> (This document has outdated TTLL Algorithms)
+                My ZZ-CT <a href="https://docs.google.com/document/d/1XE1AYZ66MQ8fPJEXhDVu2dfHXoW9kz8pAXp7kXTYQ0k/view#">document</a> (Newly Updated! You should just use the ZMS or Swagrid Doc though)
 				<br><br>
                 <a href="https://drive.google.com/file/d/148i4z9K--45G_-RH0f5ayC5Za8cPMyy5/view">TTLL</a> Algorithms by Justin Taylor
                 <br>
@@ -124,21 +140,23 @@ the giiker will be reflected on the virtual cube. The giiker cube should
 				Tao Yu's nice <a href="https://drive.google.com/file/d/0B4wnDYRRloa1Mmswb1JmZW8yV2s/view">document</a> for ZZ-C (OLS) with fixes and some better algs.
 				<br>
 				<br>
+
+
             </div>
 
 
 
-            <div class="column_middle">
-                <div id="simcube" style="display: none;"> 
-                    <canvas id="cube" width="250" height="300"></canvas>
+            <div class=column_middle>
+                <div id="simcube"> 
+                    <canvas id="cube" width="250" height="300" ></canvas>
                 </div>
 
                 <div id="timer_div">
-                    <p id="timer" style="display: block;">Ready</p>
+                    <p id="timer">0.00</p>
                 </div>
 
                 <div id="algdisplayer"> 
-                    <p id="algdisp" class="algdisp"></p>
+                    <p id="algdisp" class=algdisp>Solution</p>
                 </div>
 
                 <div id="controls">
@@ -149,20 +167,24 @@ the giiker will be reflected on the virtual cube. The giiker cube should
 
 
 
-            <div class="column_right">
-                <img src="js/a.svg" id="visualcube">
+            <div class=column_right>
+                <div id="visual-cube-container">
+                    <img src="https://www.cubing.net/api/visualcube/?fmt=svg&size=300&view=plan&bg=black&alg=x2" id="visualcube" title="Click to switch between flat and 3D view"/>
+                </div>
+                <p style="font-size: small;">Click the above cube to switch between flat, 3D view and hidden</p>
 
                 <div style="overflow-y: scroll; height:150px;">
-                    <p id="timeList" style="text-align: left">&nbsp;</p>
+                    <p id="timeList" style="text-align: left">&nbsp</p>
                 </div>
-                <p id="statistics">&nbsp;</p>
+                <p id="statistics">&nbsp</p>
 
 
                 <div style="text-align: left">
                     <button id="deleteLast">Delete last solve</button>
                     <button id="clearTimes">Clear all</button>
                     <br><br>
-                    <table id="algsetStatistics"><th>Algset Statistics</th><tr><td>STM</td><td>8.143</td></tr><tr><td>SQTM</td><td>9.143</td></tr><tr><td>STM (including AUF)</td><td>8.429</td></tr><tr><td>SQTM (including AUF)</td><td>9.429</td></tr><tr><td>Number of algs</td><td>7</td></tr></table>
+                    <table id="algsetStatistics">
+                    </table>
                     <h2>Instructions</h2>
                     <b>Enter/Tab/Space</b>: New scramble.<br>
                     <b>Space</b>: Stop timer and show algorithm.<br>
@@ -173,10 +195,10 @@ the giiker will be reflected on the virtual cube. The giiker cube should
                     Space: Stop timer, show algorithm and reset case.<br>
                     Timer will automatically stop if the cube is solved.<br>
                     Esc: Reset case without showing algorithm.<br> 
-                    Keyboard Controls: See <a href="https://tao-yu.github.io/Alg-Trainer/controls.html">here</a>.
-                    <br><br>
+                    <h4> View/Edit Keyboard Controls <a href="controls.html">here</a>. </h4>
+                    
 
-					<a href="https://discord.gg/3xh4Z4E">Join the ZZ Method Solver's Discord!</a>
+                    <a href="https://discord.gg/3xh4Z4E">Join the ZZ Method Solver's Discord!</a>
                     <br><br>
                     Please report bugs and/or errors in algorithims by messaging me on Reddit, u/SanicScoot, or on Discord, soncScoot#3912
 					<br>My programming knowledge is limited, so don't exepect everything to be fixed lol.  Chances are, I'll copy fixes straight from Tao Yu's trainer.
@@ -185,6 +207,8 @@ the giiker will be reflected on the virtual cube. The giiker cube should
                     Note: Some adblockers (ublock origin, for example) 
 may cause this site to stop working. If you are experiencing problems, 
 try whitelisting this site on your adblocker.
+
+                     
                 </div>
 
 
@@ -201,7 +225,7 @@ try whitelisting this site on your adblocker.
         <script src="js/alg.js"></script>
         <script src="js/controls.js"></script>
         <script src="js/alg_list.js"></script>
+        <script src="js/keymaps.js"></script>
         <script src="js/RubiksCube.js"></script>
-    
-
-</body></html>
+    </body>
+</html>
