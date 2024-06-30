@@ -1,0 +1,273 @@
+html {
+    height: 100%;
+
+    overflow: hidden;
+}
+
+body {
+
+    font-family: Arial;
+    background: black;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    margin: 3px;
+}
+
+p {
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 0.5px;
+    border-color: #303030;
+    width: 100%;
+}
+
+#timer {
+    font-family: Arial;
+    font-size: 30px;
+    color: white;
+}
+
+#statistics {
+    font-size: 20px;
+}
+
+#flexbox {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+p.scramble {
+    height: 10%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td,
+tr {
+    border: none;
+}
+
+#touchStartArea {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 90%;
+    flex: 1;
+
+}
+
+#page {
+
+    margin: 0;
+    padding: 0;
+
+    display: none;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+#left_popup {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 80vh;
+    z-index: 9999;
+    background-color: rgb(90, 90, 90);
+}
+
+#right_popup {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 80vh;
+    z-index: 9999;
+    background-color: rgb(90, 90, 90);
+}
+
+.column_left {
+    position: absolute;
+    height: 70vh;
+    overflow: auto;
+    padding: 20px;
+    background-color: rgb(90, 90, 90);
+    color: white;
+    font-size: 18px;
+}
+
+.column_right {
+    position: absolute;
+    height: 70vh;
+    overflow: auto;
+    padding: 20px;
+    background-color: rgb(90, 90, 90);
+    color: white;
+    font-size: 18px;
+}
+
+.column_middle {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.algsetpicker {
+    width: 70%;
+}
+
+a:link {
+    color: cornflowerblue
+}
+
+a:visited {
+    color: darkslateblue
+}
+
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid white;
+    border-right: 16px solid red;
+    border-bottom: 16px solid green;
+    border-left: 16px solid orange;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add animation to "page content" */
+/*
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}*/
+
+
+
+.big_button {
+    background-color: grey;
+    border: none;
+    color: white;
+    margin: 3px;
+    font-size: 18px;
+}
+
+.arrow_button {
+    flex: 1;
+    padding: 10px;
+}
+
+
+.on_screen_controls {
+    flex: 0.05;
+    display: flex;
+
+}
+
+.sidebar_buttons {
+    flex: 0.025;
+    display: flex;
+}
+
+.sidebar_button {
+    flex: 1;
+    margin: 3px;
+    background-color: grey;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.flex-item {
+    flex: 2;
+    padding: 10px;
+}
+
+#visual-cube-container {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 100%;
+    background: rgb(90, 90, 90);
+    align-items: center;
+}
