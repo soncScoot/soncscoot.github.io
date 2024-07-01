@@ -1,4 +1,4 @@
-var ttllzzms = {
+var ttllzmsGroup = {
 	"Front Opposite":["(U') R2' U2' R2 U' R2' U R2 U' R2' U' R2", "(U) R' U' R2 U' R2' U2' R U R U2' R' / R2' U' R2 U R2' U S R2 S'", "(U) R U2' R U R2' U R U' R U' R2' U' R U R' / (U') R2 U R' U' R' U R U2 R' U' R U R U2' R2'", "R2' U2' R2 U' R2' U' R2", "R U' R' U' R U2' R' U2 R U2' R' U R U R' / (U) R2 U R2 U' R2 U2 R2 U R2 U' R2", "(U2) R2' U R2 U R2' U2' R2", "(U) R U' R' U R U2' R' U' R U R'", "(U) S R2' S' U' R2 U' R2' U R2", "(U) R U' R' U R2 U R' U R' U' R2 U' R' U2 R'", "R2' U2' R2 U' S R2' S' U' R2", "(U2) R U' R' U2 R' U2 R2 U R' U' R' U2 R", "(U') R U R' U R U R' U R U' R' U R U R' U R U R' / (U2) R U' R2 U2 R' U R' U' R U2 R2 U R' / R2' U2' S' R2 S U' S' R2' S U' R2'"],
 	"Right Opposite":["(U2) D R U R U' R' U2 R' U2 R2 U R' U' R' D' / (U) R' D' R U' R2' D' r U2 r' D R U2 D R", "(U') F' R U R' U' R' F R2 U2' R' U2 R U2' R'", "R2' F2 U2' R2 U' R2' U' F2 R2", "(U') D R2' U2 R2 U R2' U R2 D'", "(U2) D R' U R U' R' U2 R U R' U' R D'", "(U') R U2' R' U2 R U2' R2' F' R U R U' R' F", "(U2) R U' R' F' U' L' U2 L U F R U R'", "(U) D R2' U' R2 U' R2' U2 R2 D'", "D R U R U' R2' U2 R U2 R U R' U' R' D'", "(U') D R' U2 R U R' U2 R2 U2 R' U' R U' R2 U' R D' / R2 U2' R2' U' R U R' U' R U' R2' U' D R' U R D' / (U) D R' U' R U D' R2 U R' U R U' R' U R2' U2 R2", "(U2) R2' F2 U R2 U R2' U2' F2 R2", "(U') D R2' U2' R2 U S R2' S' U R2 D'"],
 	"Double Opposite":["(U2) R' F R F' R' F R F' R' F R F'", "R' D R U' R D' R' U2 R D R' U R' D' R", "R' U' R' U R2 D' R U2 R' U2 R U' R' D R' / R' U2 D' R U R' U D R U2 R' U' R U' R' U2 R", "(U') R U' R' U R U' R2' F2 R2 U' R' U' R U R' F2' / (U') R U R' U' R U2 R D R' U R' U' R U R2 D' R / R' D R2 U' R' U R U' R D' R' U2 R' U R U' R'", "R2 U B2 U R2' U' R2 U' B2 R2' / R2 D r2' U r2 U' r2' U' r2 UD' R2'", "R2 B2 U R2' U R2 U' B2 U' R2' / F2 U' R2 U2 R2 U' R2 U' R2 U' F2", "(U') D R2' U' F2 U' R2 U R2' U F2 R2 D' / F2 U' r2 U' r2 U r2 U r2 F2", "F2 r2 U' r2' U' r2 U r2' U F2", "z UD R U' R2' D' R2 U R2' D R U'D' z' / D' R U2 D R U' R' U2 R U' R' U D' R' D R U R'", "(U') R U' R' U R' U' F' U F R U R U' R' F' U' F  / (U2) F' R U2 R' U R' D' R U' R' D R U' R U' R' F ", "D F' U R' U R U2 R' F U2 F' R F R' U' R D / (U) R U2' R' U R F R' U R U2' R' U R U F' U2' R' / F' R U R' U R' D' R U R' D R U' R U2 R' F / (U') R2 U' F2 U' F2 R2 U2 R2 D R2 D'", "R2 D R2' U'D' F2 R2 U' R2' U' F2"],
@@ -7,7 +7,7 @@ var ttllzzms = {
 	"Double Bar":["(U') D R2' U' R2 U R2' D' R2 U R2' U' R2 / F2 r2 U' r' F r' F2 R U' R'", "(U) R U' R' D' R' D F D' R U D R U' R' F' U' R U R' / (U' D) R2 U' R' U' F' R U R' U' R' F R' U2' R U2' R / R' U2 R' U R U' D' R U2 R U R U' R2 D R", "R U R' F R' F' R2 F U R U' R' F' U' R' / (U') D F U' R' F' U' F R U R' F R' F' R2 F' D'", "R2 U R2' U' R2 B2 R' U R' B2' R U' R B2 / R2' U2 R2 U' R2' U' r U r' B2' r U' r' B2' R2 / F' R U R' U' R' F U2 R' U D R' U' R U2 D' R / (U) R' D' R U2 R' D R2 U2' R' U' R U2' R' U' R U2' R' / (U2) R2 U' R U' R U R' D R D' R' U2 R2 D R2 U' D' R2", "R' D' R U R' D R U' R U' R' U R U R' U R U' R'", "(U') R' F R2 U' R' U' R U B R' F' R B' U R' / D R U R U' R' U D R2 U' R' U R2 U' D' R' D'", "R D R2' U' D' R U2 R U2' R' U2 D R' U' R2 D' / R2 U (R U R' U' R' F R2 U' R' U' R U R' F') U' R2", "(U') R' (U' D') R2 U R' D R (U' D') R2 D R U R", "(U') R2 U' F2 U2 R2 U F2 U2 R2 U' F2 / (U) R U R' U' R' B2' R2 U' R' U R' B2' R2 U' R' / R U2' R' U' F R' F' R r U' r' U' M' U' R U r'", "(U' D) M' R' U' r' F2 R2 U' R' F R' F2 R2 / F' R' U R U' F R U' R U' R U R' U R' / R' U D' R U' R' D R2 U' R U' R U R' U R'", "L U' F' U2 R' F R U' L' U' L U' F L' / (U) R U R2 B2' R U' R U R2 B2' R U R U' R'", "(U' D) R2' F2 R F' R U R2' F2 r U M R / R U' R U' R' U D R' U R D' R2 U R' U' R"],
 };
 
-var ttllzzmsfo = {
+var ttllzmsInd = {
 	"1":["(U') R2' U2' R2 U' R2' U R2 U' R2' U' R2"],
 	"2":["(U) R' U' R2 U' R2' U2' R U R U2' R' / R2' U' R2 U R2' U S R2 S'"],
 	"3":["(U) R U2' R U R2' U R U' R U' R2' U' R U R' / (U') R2 U R' U' R' U R U2 R' U' R U R U2' R2'"],
@@ -20,9 +20,6 @@ var ttllzzmsfo = {
 	"10":["R2' U2' R2 U' S R2' S' U' R2"],
 	"11":["(U2) R U' R' U2 R' U2 R2 U R' U' R' U2 R"],
 	"12":["(U') R U R' U R U R' U R U' R' U R U R' U R U R' / (U2) R U' R2 U2 R' U R' U' R U2 R2 U R' / R2' U2' S' R2 S U' S' R2' S U' R2'"],
-};
-
-var ttllzzmsro = {
 	"13":["(U2) D R U R U' R' U2 R' U2 R2 U R' U' R' D' / (U) R' D' R U' R2' D' r U2 r' D R U2 D R"],
 	"14":["(U') F' R U R' U' R' F R2 U2' R' U2 R U2' R'"],
 	"15":["R2' F2 U2' R2 U' R2' U' F2 R2"],
@@ -35,9 +32,6 @@ var ttllzzmsro = {
 	"22":["(U') D R' U2 R U R' U2 R2 U2 R' U' R U' R2 U' R D' / R2 U2' R2' U' R U R' U' R U' R2' U' D R' U R D' / (U) D R' U' R U D' R2 U R' U R U' R' U R2' U2 R2"],
 	"23":["(U2) R2' F2 U R2 U R2' U2' F2 R2"],
 	"24":["(U') D R2' U2' R2 U S R2' S' U R2 D'"],
-};
-
-var ttllzzmsdo = {
 	"25":["(U2) R' F R F' R' F R F' R' F R F'"],
 	"26":["R' D R U' R D' R' U2 R D R' U R' D' R"],
 	"27":["R' U' R' U R2 D' R U2 R' U2 R U' R' D R' / R' U2 D' R U R' U D R U2 R' U' R U' R' U2 R"],
@@ -50,9 +44,6 @@ var ttllzzmsdo = {
 	"34":["(U') R U' R' U R' U' F' U F R U R U' R' F' U' F  / (U2) F' R U2 R' U R' D' R U' R' D R U' R U' R' F "],
 	"35":["D F' U R' U R U2 R' F U2 F' R F R' U' R D / (U) R U2' R' U R F R' U R U2' R' U R U F' U2' R' / F' R U R' U R' D' R U R' D R U' R U2 R' F / (U') R2 U' F2 U' F2 R2 U2 R2 D R2 D'"],
 	"36":["R2 D R2' U'D' F2 R2 U' R2' U' F2"],
-};
-
-var ttllzzmsfb = {
 	"37":["R' D R2 D' R' U R D R' U' R' D' R / (U') x' D R U' R' D2 R U R' D x / D' L2 D R2' D' L2 D R2"],
 	"38":["(U2) R2 D R' U2 R D' R2' U2' R U R' U2' R U2 R'"],
 	"39":["(U' D) f R' f' R2 U' R F R' F' U R2 U' R' U R / (U') R F U' D R' U R U2 R' U' R U D' R' U' R F' R' / (U2) R' D' R U2 R' D R U2 R U' R' U R U R' U R U' R' / (U2) R U' R' U' R' F2 R U2 R U2' R' F2 U' R U R'"],
@@ -65,9 +56,6 @@ var ttllzzmsfb = {
 	"46":["(U') D R' U R' D' R U2 R' D R U2 R U R' U2 R D' / (U) F R' F D' r U' r' D r U r' F' R F'"],
 	"47":["(U) R U' R2' F' R U R U' R' F U2 R U2' R'"],
 	"48":["R U2' R' U2 R U' R' U2 L' U R U' L U2' R'"],
-};
-
-var ttllzzmsrb = {
 	"49":["(U') R' D R U' R D' R' U' R D R' U R' D' R / x' D' R U' R' D2 R U R' D' x"],
 	"50":["R U2 R' U2 R U' R' U2 R2 D R' U2 R D' R2 / (U) R U' R' U R U' F R U R' U' F' R2 F R F'"],
 	"51":["R' D' R U' R' D R U R U' R' U R U R' U R U' R'"],
@@ -80,9 +68,6 @@ var ttllzzmsrb = {
 	"58":["R U2' r' F R' F' r U2 R U R' U2 R U2' R'"],
 	"59":["R' U' R' U2 R B R U' R' B' U' R F R F' / R U2 R' U2 R U' R' U2 R2 D r' U2 r D' R2"],
 	"60":["R U' R D R' U2 R D' R' U2 R' U' R U2 R'"],
-};
-
-var ttllzzmsdb = {
 	"61":["(U') D R2' U' R2 U R2' D' R2 U R2' U' R2 / F2 r2 U' r' F r' F2 R U' R'"],
 	"62":["(U) R U' R' D' R' D F D' R U D R U' R' F' U' R U R' / (U' D) R2 U' R' U' F' R U R' U' R' F R' U2' R U2' R / R' U2 R' U R U' D' R U2 R U R U' R2 D R"],
 	"63":["R U R' F R' F' R2 F U R U' R' F' U' R' / (U') D F U' R' F' U' F R U R' F R' F' R2 F' D'"],
@@ -97,7 +82,97 @@ var ttllzzmsdb = {
 	"72":["(U' D) R2' F2 R F' R U R2' F2 r U M R / R U' R U' R' U D R' U R D' R2 U R' U' R"],
 };
 
-var tslezzms = {
+var ttllzmsfo = {
+	"1":["(U') R2' U2' R2 U' R2' U R2 U' R2' U' R2"],
+	"2":["(U) R' U' R2 U' R2' U2' R U R U2' R' / R2' U' R2 U R2' U S R2 S'"],
+	"3":["(U) R U2' R U R2' U R U' R U' R2' U' R U R' / (U') R2 U R' U' R' U R U2 R' U' R U R U2' R2'"],
+	"4":["R2' U2' R2 U' R2' U' R2"],
+	"5":["R U' R' U' R U2' R' U2 R U2' R' U R U R' / (U) R2 U R2 U' R2 U2 R2 U R2 U' R2"],
+	"6":["(U2) R2' U R2 U R2' U2' R2"],
+	"7":["(U) R U' R' U R U2' R' U' R U R'"],
+	"8":["(U) S R2' S' U' R2 U' R2' U R2"],
+	"9":["(U) R U' R' U R2 U R' U R' U' R2 U' R' U2 R'"],
+	"10":["R2' U2' R2 U' S R2' S' U' R2"],
+	"11":["(U2) R U' R' U2 R' U2 R2 U R' U' R' U2 R"],
+	"12":["(U') R U R' U R U R' U R U' R' U R U R' U R U R' / (U2) R U' R2 U2 R' U R' U' R U2 R2 U R' / R2' U2' S' R2 S U' S' R2' S U' R2'"],
+};
+
+var ttllzmsro = {
+	"13":["(U2) D R U R U' R' U2 R' U2 R2 U R' U' R' D' / (U) R' D' R U' R2' D' r U2 r' D R U2 D R"],
+	"14":["(U') F' R U R' U' R' F R2 U2' R' U2 R U2' R'"],
+	"15":["R2' F2 U2' R2 U' R2' U' F2 R2"],
+	"16":["(U') D R2' U2 R2 U R2' U R2 D'"],
+	"17":["(U2) D R' U R U' R' U2 R U R' U' R D'"],
+	"18":["(U') R U2' R' U2 R U2' R2' F' R U R U' R' F"],
+	"19":["(U2) R U' R' F' U' L' U2 L U F R U R'"],
+	"20":["(U) D R2' U' R2 U' R2' U2 R2 D'"],
+	"21":["D R U R U' R2' U2 R U2 R U R' U' R' D'"],
+	"22":["(U') D R' U2 R U R' U2 R2 U2 R' U' R U' R2 U' R D' / R2 U2' R2' U' R U R' U' R U' R2' U' D R' U R D' / (U) D R' U' R U D' R2 U R' U R U' R' U R2' U2 R2"],
+	"23":["(U2) R2' F2 U R2 U R2' U2' F2 R2"],
+	"24":["(U') D R2' U2' R2 U S R2' S' U R2 D'"],
+};
+
+var ttllzmsdo = {
+	"25":["(U2) R' F R F' R' F R F' R' F R F'"],
+	"26":["R' D R U' R D' R' U2 R D R' U R' D' R"],
+	"27":["R' U' R' U R2 D' R U2 R' U2 R U' R' D R' / R' U2 D' R U R' U D R U2 R' U' R U' R' U2 R"],
+	"28":["(U') R U' R' U R U' R2' F2 R2 U' R' U' R U R' F2' / (U') R U R' U' R U2 R D R' U R' U' R U R2 D' R / R' D R2 U' R' U R U' R D' R' U2 R' U R U' R'"],
+	"29":["R2 U B2 U R2' U' R2 U' B2 R2' / R2 D r2' U r2 U' r2' U' r2 UD' R2'"],
+	"30":["R2 B2 U R2' U R2 U' B2 U' R2' / F2 U' R2 U2 R2 U' R2 U' R2 U' F2"],
+	"31":["(U') D R2' U' F2 U' R2 U R2' U F2 R2 D' / F2 U' r2 U' r2 U r2 U r2 F2"],
+	"32":["F2 r2 U' r2' U' r2 U r2' U F2"],
+	"33":["z UD R U' R2' D' R2 U R2' D R U'D' z' / D' R U2 D R U' R' U2 R U' R' U D' R' D R U R'"],
+	"34":["(U') R U' R' U R' U' F' U F R U R U' R' F' U' F  / (U2) F' R U2 R' U R' D' R U' R' D R U' R U' R' F "],
+	"35":["D F' U R' U R U2 R' F U2 F' R F R' U' R D / (U) R U2' R' U R F R' U R U2' R' U R U F' U2' R' / F' R U R' U R' D' R U R' D R U' R U2 R' F / (U') R2 U' F2 U' F2 R2 U2 R2 D R2 D'"],
+	"36":["R2 D R2' U'D' F2 R2 U' R2' U' F2"],
+};
+
+var ttllzmsfb = {
+	"37":["R' D R2 D' R' U R D R' U' R' D' R / (U') x' D R U' R' D2 R U R' D x / D' L2 D R2' D' L2 D R2"],
+	"38":["(U2) R2 D R' U2 R D' R2' U2' R U R' U2' R U2 R'"],
+	"39":["(U' D) f R' f' R2 U' R F R' F' U R2 U' R' U R / (U') R F U' D R' U R U2 R' U' R U D' R' U' R F' R' / (U2) R' D' R U2 R' D R U2 R U' R' U R U R' U R U' R' / (U2) R U' R' U' R' F2 R U2 R U2' R' F2 U' R U R'"],
+	"40":["F U' R' F R2 U R' U R U2' R' F' R U R' F'"],
+	"41":["(U2) R' F R2 U' R' U R U R' F' R U' R2' F R F' / R U r' D F R' F' D' r F R F' U' R'"],
+	"42":["R F' R U R2' U' R' F R' S R2 S' / (U') R2' U2' R2 U' D R2' U' R2 U R2' D' R2"],
+	"43":["L D' L D L2' U' r' F' M' F2 R / (U') R U2' R' U R U2' R D R' U2 R D' R' U R' / D B2 U2 R2 U' R2 U' R2 U2 R2 U B2 D'"],
+	"44":["(U2) D' L' U2 L U2' F L' U' L U L F' L2' U' L D / D R2' U2' R2 UD' R2' D R2 U R2' D' R2 / (U') R' U'D' R U' R' D R D R' U R D' R' U R / (U') R' U' R U'D R' U R D' F R' U R U' F'"],
+	"45":["(U) R U2' R' S U R' F R F' R U' R2' F R f' / R' D L' U L U'D r U2 r' F2 D2 R / (U') R' U2 R U R' U D' R U R' D R2 U2 R' U' R U' R'"],
+	"46":["(U') D R' U R' D' R U2 R' D R U2 R U R' U2 R D' / (U) F R' F D' r U' r' D r U r' F' R F'"],
+	"47":["(U) R U' R2' F' R U R U' R' F U2 R U2' R'"],
+	"48":["R U2' R' U2 R U' R' U2 L' U R U' L U2' R'"],
+};
+
+var ttllzmsrb = {
+	"49":["(U') R' D R U' R D' R' U' R D R' U R' D' R / x' D' R U' R' D2 R U R' D' x"],
+	"50":["R U2 R' U2 R U' R' U2 R2 D R' U2 R D' R2 / (U) R U' R' U R U' F R U R' U' F' R2 F R F'"],
+	"51":["R' D' R U' R' D R U R U' R' U R U R' U R U' R'"],
+	"52":["R U' R F2' R2' U R U2 R' U' R U R F2' R2' / R F R2' U R2 U' F' U' R U R2' U R U2 R2'"],
+	"53":["(U) D' R' D R' D' R2 U R U M' U2 r' D / (U2) F R' F r U' r' D' r U r' D F' R F' / (U) R' D' R U R U' R' U2 R' D' r U2 r' D2 R / D  R' U2 R U' R' U2 R' D' R U2 R' D R U' R"],
+	"54":["(U') R U2' R' U2 F' R U R' U' R' F R2 U R' / (U') R U2' R' U2 R U2' F U' R' U' R U F' R' / (U) R U2' R' U2 R U2' R2' F R U R U' R' F'"],
+	"55":["R' U R' U' D R2 U' R U' R' U R' U R2 U D' R2 / (U') R' D' R U R' D R2 U F U R' U' R F' U' R'"],
+	"56":["(U) S R2' S' D' R2 U R2' U' R2 D / (U') R2' D R2 U' R2' U R2 D'U R2' U2 R2"],
+	"57":["(U) R U R' U' R U R' U' R F R' U R U' F' U R' U R U' R' / (U) R U R' U2 R' D' R U R' D R2 U R' U R U' R'"],
+	"58":["R U2' r' F R' F' r U2 R U R' U2 R U2' R'"],
+	"59":["R' U' R' U2 R B R U' R' B' U' R F R F' / R U2 R' U2 R U' R' U2 R2 D r' U2 r D' R2"],
+	"60":["R U' R D R' U2 R D' R' U2 R' U' R U2 R'"],
+};
+
+var ttllzmsdb = {
+	"61":["(U') D R2' U' R2 U R2' D' R2 U R2' U' R2 / F2 r2 U' r' F r' F2 R U' R'"],
+	"62":["(U) R U' R' D' R' D F D' R U D R U' R' F' U' R U R' / (U' D) R2 U' R' U' F' R U R' U' R' F R' U2' R U2' R / R' U2 R' U R U' D' R U2 R U R U' R2 D R"],
+	"63":["R U R' F R' F' R2 F U R U' R' F' U' R' / (U') D F U' R' F' U' F R U R' F R' F' R2 F' D'"],
+	"64":["R2 U R2' U' R2 B2 R' U R' B2' R U' R B2 / R2' U2 R2 U' R2' U' r U r' B2' r U' r' B2' R2 / F' R U R' U' R' F U2 R' U D R' U' R U2 D' R / (U) R' D' R U2 R' D R2 U2' R' U' R U2' R' U' R U2' R' / (U2) R2 U' R U' R U R' D R D' R' U2 R2 D R2 U' D' R2"],
+	"65":["R' D' R U R' D R U' R U' R' U R U R' U R U' R'"],
+	"66":["(U') R' F R2 U' R' U' R U B R' F' R B' U R' / D R U R U' R' U D R2 U' R' U R2 U' D' R' D'"],
+	"67":["R D R2' U' D' R U2 R U2' R' U2 D R' U' R2 D' / R2 U (R U R' U' R' F R2 U' R' U' R U R' F') U' R2"],
+	"68":["(U') R' (U' D') R2 U R' D R (U' D') R2 D R U R"],
+	"69":["(U') R2 U' F2 U2 R2 U F2 U2 R2 U' F2 / (U) R U R' U' R' B2' R2 U' R' U R' B2' R2 U' R' / R U2' R' U' F R' F' R r U' r' U' M' U' R U r'"],
+	"70":["(U' D) M'R' U' r' F2 R2 U' R' F R' F2 R2 / F' R' U R U' F R U' R U' R U R' U R' / R' U D' R U' R' D R2 U' R U' R U R' U R'"],
+	"71":["L U' F' U2 R' F R U' L' U' L U' F L' / (U) R U R2 B2' R U' R U R2 B2' R U R U' R'"],
+	"72":["(U' D) R2' F2 R F' R U R2' F2 r U M R / R U' R U' R' U D R' U R D' R2 U R' U' R"],
+};
+
+var tslezmsGroup = {
 	"UN3":["L' U2 R U R' U2 L"],
 	"UN2":["R U' R'", "(U') R U2 R' U2 R U2 R'", "R2 D R' U' R D' R2", "L' R U R' U' R L U' R' / R U' R' U R' U' R U' R' U2 R", "R U R' U2' R U' R' U' R U R'", "R U R' U' R U' R'"],
 	"UN1":["(U) R U' R' U R U2' R'", "(U2) R U2' R' U R U2' R'", "(U') R U' R' U R U R' U' R U' R' / R U R2' U' R2 U' R2' U2' R", "(U) R' U' R2 U' R2' U2' R", "R U R' U2 R U2 R' U R U' R'", "(U') R U' R' U R U' R'", "(U') R U R' U2 R U2' R'", "(U') r' F R F' M'", "R' D' R U R' D R2 U2 R' / (U') S' R U' R' f R' F' R", "(U) R U2' R'", "(U') R U2' R' U R U' R'", "(U') R U R' U' R U R'"],
@@ -115,11 +190,118 @@ var tslezzms = {
 	"OCLL":["R U R' U R U' R' U R U2' R'", "R' U2' R2 U R2' U R2 U2' R'", "(U) R U' R' U R U' R' U R U' R'", "r U R' U' r' F R F'", "F' r U R' U' r' F R", "R U2' R' U' R U' R'", "R U R' U R U2' R'"],
 };
 
-var tslezzmsUN3 = {
+var tslezmsInd = {
+	"UN3-1":["L' U2 R U R' U2 L"],
+	"UN2-1":["R U' R'"],
+	"UN2-2":["(U') R U2 R' U2 R U2 R'"],
+	"UN2-3":["R2 D R' U' R D' R2"],
+	"UN2-4":["L' R U R' U' R L U' R' / R U' R' U R' U' R U' R' U2 R"],
+	"UN2-5":["R U R' U2' R U' R' U' R U R'"],
+	"UN2-6":["R U R' U' R U' R'"],
+	"UN1-1":["(U) R U' R' U R U2' R'"],
+	"UN1-2":["(U2) R U2' R' U R U2' R'"],
+	"UN1-3":["(U') R U' R' U R U R' U' R U' R' / R U R2' U' R2 U' R2' U2' R"],
+	"UN1-4":["(U) R' U' R2 U' R2' U2' R"],
+	"UN1-5":["R U R' U2 R U2 R' U R U' R'"],
+	"UN1-6":["(U') R U' R' U R U' R'"],
+	"UN1-7":["(U') R U R' U2 R U2' R'"],
+	"UN1-8":["(U') r' F R F' M'"],
+	"UN1-9":["R' D' R U R' D R2 U2 R' / (U') S' R U' R' f R' F' R"],
+	"UN1-10":["(U) R U2' R'"],
+	"UN1-11":["(U') R U2' R' U R U' R'"],
+	"UN1-12":["(U') R U R' U' R U R'"],
+	"UN0-1":["R U' R' U' R U R' U R U2' R'"],
+	"UN0-2":["R U' R2' U2' R U R' U R"],
+	"UN0-3":["R U R D R' U2 R D' R2'"],
+	"UN0-4":["(U) R U' R' U R U' R' U R U2' R'"],
+	"UN0-5":["(U) R U' R' U' R U' R' U' R U R'"],
+	"UN0-6":["(U2) R U R' U' R U R' U2' R U R'"],
+	"UN0-7":["R U' R2' U' R U' R' U2' R"],
+	"UN0-8":["R U R' U' R U R' U' R U' R'"],
+	"UCw4-1":["(U) R U' R' U2 R U R'"],
+	"UCw3-1":["(U') R U R' U R U' R'"],
+	"UCw3-2":["(U') L U' R U R' L'"],
+	"UCw3-3":["(U) R U' R' U' R U R' U R U' R'"],
+	"UCw3-4":["(U2) R U R' U' R U' R' U2 R U' R'"],
+	"UCw3-5":["(U2) F R U R' U' R' F' R"],
+	"UCw3-6":["R' D' r U2 r' D R"],
+	"UCw2-1":["(U2) R U2' R' U2 R U R'"],
+	"UCw2-2":["R' D' R U R' D R U R U R'"],
+	"UCw2-3":["R U R' U R U' R' U' R U' R'"],
+	"UCw2-4":["(U2) R U R D R' U R D' R' U' R'"],
+	"UCw2-5":["(U2) R U' R' U2 R U R' U R U' R'"],
+	"UCw2-6":["L R U' R' U L'"],
+	"UCw2-7":["(U2) F' R U R' U' R' F R"],
+	"UCw2-8":["(U2) R U R'"],
+	"UCw2-9":["(U) R U' R' U R U' R' U2 R U R' / (U) R U2 R' U R U2 R' U R U R'"],
+	"UCw2-10":["(U') R U R' U' R U' R' U R U R'"],
+	"UCw2-11":["R U2' R' U' R U R' U2 R U' R'"],
+	"UCw2-12":["(U2) R U R2' D' R U2 R' D R"],
+	"UCw1-1":["R U' R' U R U R' U2' R U R'"],
+	"UCw1-2":["(U') R U R' U R U2' R' U' R U2' R'"],
+	"UCw1-3":["(U) R U R' U' R U R' U2' R U' R'"],
+	"UCw1-4":["(U2) R U M' U R' U' r' F R F' / (U2) R U' R' U2 R U2' R' U2 R U2' R'"],
+	"UCw1-5":["(U2) R U R' U R U2' R' U R U R'"],
+	"UCw1-6":["(U) R' D' R U R' D R2 U R'"],
+	"UCw1-7":["R U R' U R U R'"],
+	"UCw1-8":["(U) R U R' U' R U R' U' R U2' R'"],
+	"UCcw3-1":["R U' R2' D' R U2 R' D R"],
+	"UCcw2-1":["R U' R2' D' R U2 R' D R"],
+	"UCcw2-2":["(U') R U' R' U2 R U2' R' / (U2) R2 D R' U R D' R2"],
+	"UCcw2-3":["R U2' R' U R U2' R' U R U' R'"],
+	"UCcw2-4":["(U') R' U' R U' R U R2' U R"],
+	"UCcw2-5":["(U') R U R' U2 R U' R' U R U2 R'"],
+	"UCcw2-6":["R U' R' U' R U' R' U2 R U' R'"],
+	"UCcw1-1":["R' U' R U' R' U2' R2 U2' R'"],
+	"UCcw1-2":["R U R' U R U' R' U R U R'"],
+	"UCcw1-3":["R U' R' U2 R U' R' U2 R U' R'"],
+	"UCcw1-4":["(U2) R U' R2' U' R2 U' R2' U2' R"],
+	"UCcw1-5":["(U) R U R' U2 R U' R'"],
+	"UCcw1-6":["(U) R' U2' R U R' U R2 U' R'"],
+	"UCcw1-7":["(U2) R U' R' U R U R'"],
+	"UCcw1-8":["(U') R U' R' U R U2' R' U' R U2' R'"],
+	"UCcw1-9":["R U' R' U' R U' R' U' R U2' R'"],
+	"UCcw1-10":["R U2' R' U' R U2' R'"],
+	"UCcw1-11":["R U' R2' D' R U R' D R"],
+	"UCcw1-12":["(U) R2 U R' U R U2' R2' / (U2) R' F R f' R U R' S"],
+	"UCcw0-1":["(U) R U R' U R U2 R' U R U' R'"],
+	"UCcw0-2":["(U) R U R' U' R U2' R'"],
+	"UCcw0-3":["R U2' R' U2 R U' R'"],
+	"UCcw0-4":["(U) R U R D R' U R D' R2'"],
+	"UCcw0-5":["(U) R U' R' U R U R' U' R U2' R'"],
+	"UCcw0-6":["(U') R U2' R' U' R U' R' U R U R'"],
+	"UCcw0-7":["(U2) R' U2' R U R' U R U' R U2' R'"],
+	"UCcw0-8":["(U2) R U R' U' R U2' R' U' R U' R'"],
+	"SCw-1":["(U) D' R' D R U' R' D' R D / (U') D' R' D R U R' D' R D"],
+	"SCw-2":["(U') R U' R' U' R U R' U2 R U' R'"],
+	"SCw-3":["R U2' R' U R U2' R' U2 R U R'"],
+	"SCw-4":["(U) R U2' R' U R U R'"],
+	"SCw-5":["(U2) R U' R' U' R U R' U' R U2' R'"],
+	"SCw-6":["R U2' R' U' R U R' U R U R'"],
+	"SCw-7":["R U' R' U' R U' R' U R U2' R'"],
+	"SCw-8":["(U) R U R' U2' R U R'"],
+	"SCcw-1":["(U) R' D' R U' R' D R / (U') R' D' R U R' D R"],
+	"SCcw-2":["(U2) R U' R' U' R U2 R'"],
+	"SCcw-3":["R U R' U' R U' R' U2 R U2' R'"],
+	"SCcw-4":["(U') R U' R' U2 R U' R'"],
+	"SCcw-5":["(U') R U' R' U R U2' R' U R U' R'"],
+	"SCcw-6":["(U2) R U R' U R U R' U' R U2' R'"],
+	"SCcw-7":["R U2' R' U R U R' U R U2' R' U' R U' R' / R U' R D R' U' R D' R2 U' R U' R'"],
+	"SCcw-8":["(U2) R U' R' U R U R' U' R U R'"],
+	"OLL-21":["R U R' U R U' R' U R U2' R'"],
+	"OLL-22":["R' U2' R2 U R2' U R2 U2' R'"],
+	"OLL-23":["(U) R U' R' U R U' R' U R U' R'"],
+	"OLL-24":["r U R' U' r' F R F'"],
+	"OLL-25":["F' r U R' U' r' F R"],
+	"OLL-26":["R U2' R' U' R U' R'"],
+	"OLL-27":["R U R' U R U2' R'"],
+};
+
+var tslezmsUN3 = {
 	"1":["L' U2 R U R' U2 L"],
 };
 
-var tslezzmsUN2 = {
+var tslezmsUN2 = {
 	"1":["R U' R'"],
 	"2":["(U') R U2 R' U2 R U2 R'"],
 	"3":["R2 D R' U' R D' R2"],
@@ -128,7 +310,7 @@ var tslezzmsUN2 = {
 	"6":["R U R' U' R U' R'"],
 };
 
-var tslezzmsUN1 = {
+var tslezmsUN1 = {
 	"1":["(U) R U' R' U R U2' R'"],
 	"2":["(U2) R U2' R' U R U2' R'"],
 	"3":["(U') R U' R' U R U R' U' R U' R' / R U R2' U' R2 U' R2' U2' R"],
@@ -143,7 +325,7 @@ var tslezzmsUN1 = {
 	"12":["(U') R U R' U' R U R'"],
 };
 
-var tslezzmsUN0 = {
+var tslezmsUN0 = {
 	"1":["R U' R' U' R U R' U R U2' R'"],
 	"2":["R U' R2' U2' R U R' U R"],
 	"3":["R U R D R' U2 R D' R2'"],
@@ -154,11 +336,11 @@ var tslezzmsUN0 = {
 	"8":["R U R' U' R U R' U' R U' R'"],
 };
 
-var tslezzmsUCw4 = {
+var tslezmsUCw4 = {
 	"1":["(U) R U' R' U2 R U R'"],
 };
 
-var tslezzmsUCw3 = {
+var tslezmsUCw3 = {
 	"1":["(U') R U R' U R U' R'"],
 	"2":["(U') L U' R U R' L'"],
 	"3":["(U) R U' R' U' R U R' U R U' R'"],
@@ -167,7 +349,7 @@ var tslezzmsUCw3 = {
 	"6":["R' D' r U2 r' D R"],
 };
 
-var tslezzmsUCw2 = {
+var tslezmsUCw2 = {
 	"1":["(U2) R U2' R' U2 R U R'"],
 	"2":["R' D' R U R' D R U R U R'"],
 	"3":["R U R' U R U' R' U' R U' R'"],
@@ -182,7 +364,7 @@ var tslezzmsUCw2 = {
 	"12":["(U2) R U R2' D' R U2 R' D R"],
 };
 
-var tslezzmsUCw1 = {
+var tslezmsUCw1 = {
 	"1":["R U' R' U R U R' U2' R U R'"],
 	"2":["(U') R U R' U R U2' R' U' R U2' R'"],
 	"3":["(U) R U R' U' R U R' U2' R U' R'"],
@@ -193,11 +375,11 @@ var tslezzmsUCw1 = {
 	"8":["(U) R U R' U' R U R' U' R U2' R'"],
 };
 
-var tslezzmsUCcw3 = {
+var tslezmsUCcw3 = {
 	"1":["R U' R2' D' R U2 R' D R"],
 };
 
-var tslezzmsUCcw2 = {
+var tslezmsUCcw2 = {
 	"1":["R U' R2' D' R U2 R' D R"],
 	"2":["(U') R U' R' U2 R U2' R' / (U2) R2 D R' U R D' R2"],
 	"3":["R U2' R' U R U2' R' U R U' R'"],
@@ -206,7 +388,7 @@ var tslezzmsUCcw2 = {
 	"6":["R U' R' U' R U' R' U2 R U' R'"],
 };
 
-var tslezzmsUCcw1 = {
+var tslezmsUCcw1 = {
 	"1":["R' U' R U' R' U2' R2 U2' R'"],
 	"2":["R U R' U R U' R' U R U R'"],
 	"3":["R U' R' U2 R U' R' U2 R U' R'"],
@@ -221,7 +403,7 @@ var tslezzmsUCcw1 = {
 	"12":["(U) R2 U R' U R U2' R2' / (U2) R' F R f' R U R' S"],
 };
 
-var tslezzmsUCcw0 = {
+var tslezmsUCcw0 = {
 	"1":["(U) R U R' U R U2 R' U R U' R'"],
 	"2":["(U) R U R' U' R U2' R'"],
 	"3":["R U2' R' U2 R U' R'"],
@@ -232,7 +414,7 @@ var tslezzmsUCcw0 = {
 	"8":["(U2) R U R' U' R U2' R' U' R U' R'"],
 };
 
-var tslezzmsSCw = {
+var tslezmsSCw = {
 	"1":["(U) D' R' D R U' R' D' R D / (U') D' R' D R U R' D' R D"],
 	"2":["(U') R U' R' U' R U R' U2 R U' R'"],
 	"3":["R U2' R' U R U2' R' U2 R U R'"],
@@ -243,7 +425,7 @@ var tslezzmsSCw = {
 	"8":["(U) R U R' U2' R U R'"],
 };
 
-var tslezzmsSCcw = {
+var tslezmsSCcw = {
 	"1":["(U) R' D' R U' R' D R / (U') R' D' R U R' D R"],
 	"2":["(U2) R U' R' U' R U2 R'"],
 	"3":["R U R' U' R U' R' U2 R U2' R'"],
@@ -254,7 +436,7 @@ var tslezzmsSCcw = {
 	"8":["(U2) R U' R' U R U R' U' R U R'"],
 };
 
-var tslezzmsOCLL = {
+var tslezmsOCLL = {
 	"21":["R U R' U R U' R' U R U2' R'"],
 	"22":["R' U2' R2 U R2' U R2 U2' R'"],
 	"23":["(U) R U' R' U R U' R' U R U' R'"],
@@ -265,7 +447,7 @@ var tslezzmsOCLL = {
 };
 
 
-var ttllzzmslegacy = {
+var ttllzmslegacy = {
     "Front Opposite":["(U') R2' U2' R2 U' R2' U R2 U' R2' U' R2", "(U) R U2' R U R2' U R U' R U' R2' U' R U R' / (U') R2 U R' U' R' U R U2 R' U' R U R U2' R2'", "(U2) R2' U R2 U R2' U2' R2", "(U) R U' R' U R2 U R' U R' U' R2' U' R' U2 R'", "R U' R' U' R U2' R' U2 R U2' R' U R U R' / (U) R2 U R2 U' R2 U2 R2 U R2 U' R2", "(U2) R U' R' U2 R' U2 R2 U R' U' R' U2 R", "(U) R U' R' U R U2' R' U' R U R'", "(U') R U R' U R U R' U R U' R' U R U R' U R U R' / R U' R2 U2 R' U R' U' R U2 R2 U R' / R2' U2' S' R2 S U' S' R2' S U' R2'", "(U) S R2' S' U' R2 U' R2' U R2", "R2' U2' R2 U' S R2' S' U' R2", "(U) R' U' R2 U' R2' U2' R U R U2' R' / R2' U' R2 U R2' U S R2 S'", "R2' U2' R2 U' R2' U' R2"],
     "Right Opposite":["(U') D R' U2 R U R' U2 R2 U2 R' U' R U' R2 U' R D' / R2 U2' R2' U' R U R' U' R U' R2 U' D R' U R D' / (U) D R' U' R U D' R2 U R' U R U' R' U R2' U2 R2", "(U') R U2' R' U2 R U2' R2' F' R U R U' R' F", "(U') D R2' U2' R2 U S R2' S' U R2 D'", "(U2) D R U R U' R' U2 R' U2 R2 U R' U' R' D' / (U) R' D' R U' R2' D' r U2 r' D R U2 D R", "(U2) D R' U R U' R' U2 R U R' U' R D'", "(U') D R2' U2 R2 U R2' U R2 D'", "(U2) R U' R' F' U' L' U2 L U F R U R'", "D R U R U' R2 U2 R U2 R U R' U' R' D'", "R2' F2 U2' R2 U' R2' U' F2 R2", "(U2) R2' F2 U R2 U R2' U2' F2 R2", "(U) D R2' U' R2 U' R2' U2 R2 D'", "(U') F' R U R' U' R' F R2 U2' R' U2 R U2' R'"],
 	"Double Opposite":["(U2) R' F R F' R' F R F' R' F R F'", "R' U' R' U R2 D' R U2 R' U2 R U' R' D R' / R' U2 D' R U R' U D R U2 R' U' R U' R' U2 R", "R' D R U' R D' R' U2 R D R' U R' D' R", "D F' U R' U R U2 R' F U2 F' R F R' U' R D / (U) R U2' R' U R F R' U R U2' R' U R U F' U2' R' / F' R U R' U R' D' R U R' D R U' R U2 R' F / (U') R2 U' F2 U' F2 R2 U2 R2 D R2 D'", "(U') D R2' U' F2 U' R2 U R2' U F2 R2 D' / F2 U' r2 U' r2 U r2 U r2 F2", "z UD R U' R2' D' R2 U R2' D R U'D' z' / D' R U2 D R U' R' U2 R U' R' U D' R' D R U R'", "R2 U B2 U R2' U' R2 U' B2 R2' / R2 D r2' U r2 U' r2' U' r2 U D' R2'", "R2 D R2' U' D' F2 R2 U' R2' U' F2", "R2 B2 U R2' U R2 U' B2 U' R2' / F2 U' R2 U2 R2 U' R2 U' R2 U' F2", "(U') R U' R' U R' U' F' U F R U R U' R' F' U' F / (U2) F' R U2 R' U R' D' R U' R' D R U' R U' R' F", "F2 r2 U' r2' U' r2 U r2' U F2", "(U') R U' R' U R U' R2' F2 R2 U' R' U' R U R' F2' / (U') R U R' U' R U2 R D R' U R' U' R U R2 D' R / R' D R2 U' R' U R U' R D' R' U2 R' U R U' R'"],
@@ -503,31 +685,33 @@ var zzf2l = {
 };
 
 window.algs = {
-	"TTLL (ZMS)":ttllzzms,
-	"TTLL (ZMS - Front Opposite)":ttllzzmsfo,
-	"TTLL (ZMS - Right Opposite)":ttllzzmsro,
-	"TTLL (ZMS - Double Opposite)":ttllzzmsdo,
-	"TTLL (ZMS - Front Bar)":ttllzzmsfb,
-	"TTLL (ZMS - Right Bar)":ttllzzmsrb,
-	"TTLL (ZMS - Double Bar)":ttllzzmsdb,
-	"TSLE (ZMS)":tslezzms,
-	"TSLE (ZMS - UN3)":tslezzmsUN3,
-	"TSLE (ZMS - UN2)":tslezzmsUN2,
-	"TSLE (ZMS - UN1)":tslezzmsUN1,
-	"TSLE (ZMS - UN0)":tslezzmsUN0,
-	"TSLE (ZMS - UCw4)":tslezzmsUCw4,
-	"TSLE (ZMS - UCw3)":tslezzmsUCw3,
-	"TSLE (ZMS - UCw2)":tslezzmsUCw2,
-	"TSLE (ZMS - UCw1)":tslezzmsUCw1,
-	"TSLE (ZMS - UCcw3)":tslezzmsUCcw3,
-	"TSLE (ZMS - UCcw2)":tslezzmsUCcw2,
-	"TSLE (ZMS - UCcw1)":tslezzmsUCcw1,
-	"TSLE (ZMS - UCcw0)":tslezzmsUCcw0,
-	"TSLE (ZMS - SCw)":tslezzmsSCw,
-	"TSLE (ZMS - SCcw)":tslezzmsSCcw,
-	"TSLE (ZMS - OCLL)":tslezzmsOCLL,
+	"TTLL (ZMS - Grouped, Full)":ttllzmsGroup,
+	"TTLL (ZMS - Individual, Full)":ttllzmsInd,
+	"TTLL (ZMS - Front Opposite)":ttllzmsfo,
+	"TTLL (ZMS - Right Opposite)":ttllzmsro,
+	"TTLL (ZMS - Double Opposite)":ttllzmsdo,
+	"TTLL (ZMS - Front Bar)":ttllzmsfb,
+	"TTLL (ZMS - Right Bar)":ttllzmsrb,
+	"TTLL (ZMS - Double Bar)":ttllzmsdb,
+	"TSLE (ZMS - Grouped, Full)":tslezmsGroup,
+	"TSLE (ZMS - Individual, Full)":tslezmsInd,
+	"TSLE (ZMS - UN3)":tslezmsUN3,
+	"TSLE (ZMS - UN2)":tslezmsUN2,
+	"TSLE (ZMS - UN1)":tslezmsUN1,
+	"TSLE (ZMS - UN0)":tslezmsUN0,
+	"TSLE (ZMS - UCw4)":tslezmsUCw4,
+	"TSLE (ZMS - UCw3)":tslezmsUCw3,
+	"TSLE (ZMS - UCw2)":tslezmsUCw2,
+	"TSLE (ZMS - UCw1)":tslezmsUCw1,
+	"TSLE (ZMS - UCcw3)":tslezmsUCcw3,
+	"TSLE (ZMS - UCcw2)":tslezmsUCcw2,
+	"TSLE (ZMS - UCcw1)":tslezmsUCcw1,
+	"TSLE (ZMS - UCcw0)":tslezmsUCcw0,
+	"TSLE (ZMS - SCw)":tslezmsSCw,
+	"TSLE (ZMS - SCcw)":tslezmsSCcw,
+	"TSLE (ZMS - OCLL)":tslezmsOCLL,
 	//"ZZF2L": zzf2l,
-	"TTLL (ZMS - Legacy)": ttllzzmslegacy,
+	"TTLL (ZMS - Legacy)": ttllzmslegacy,
 	"TTLL (𝝅)": ttllPi,
 	"TTLL (Swagrid)": ttllSwagrid,
 	"TTLL (Old, from soncScoot's Document)": ttllLegacy,
